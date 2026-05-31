@@ -1,0 +1,23 @@
+version: '3'
+
+vars:
+  SERVER: paas2
+  DEP_PATH: /opt/src/paas2
+  PROJECT: home
+
+tasks:
+  sync:
+    desc: "Sync this project to the remote server"
+    cmds:
+      - ssh {{.SERVER}} "mkdir -p {{.DEP_PATH}}/{{.PROJECT}}"
+      - rsync -avz --delete --exclude .git --exclude node_modules --exclude vendor --exclude docker-exports ./ {{.SERVER}}:{{.DEP_PATH}}/{{.PROJECT}}/
+
+  remote:build:
+    desc: "Sync this project and build it on the remote server"
+    deps: [sync]
+    cmds:
+      - ssh {{.SERVER}} "cd {{.DEP_PATH}}/{{.PROJECT}} && docker compose build --no-cache"
+
+  web:
+    cmds:
+      - firefox https://p2.devmad.ir

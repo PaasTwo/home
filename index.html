@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" class="dark">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PaaS2 Elite - پلتفرم ابری نسل بعد</title>
+    
+    <!-- Bootstrap 5 RTL -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Color System - Lumina Velocity */
+            --surface: #0d1515;
+            --surface-dim: #0d1515;
+            --surface-bright: #333b3b;
+            --surface-container: #192122;
+            --surface-container-high: #232b2c;
+            --surface-container-highest: #2e3637;
+            --on-surface: #dce4e5;
+            --on-surface-variant: #b9cacb;
+            --outline: #849495;
+            --outline-variant: #3b494b;
+            
+            --primary: #00f0ff;
+            --primary-container: #00f0ff;
+            --on-primary: #00363a;
+            --on-primary-container: #006970;
+            
+            --secondary: #c0c1ff;
+            --on-secondary: #1000a9;
+            
+            --error: #ffb4ab;
+            --success: #69f0ae;
+            --warning: #ffd54f;
+            
+            /* Typography */
+            --font-display: 'Vazirmatn', sans-serif;
+            --font-body: 'Vazirmatn', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+        
+        body {
+            background-color: var(--surface);
+            color: var(--on-surface);
+            font-family: var(--font-body);
+            overflow-x: hidden;
+        }
+        
+        /* Glassmorphism Effect */
+        .glass-panel {
+            background: rgba(25, 33, 34, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .glass-panel:hover {
+            border-color: rgba(0, 240, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        /* Header */
+        .navbar-custom {
+            background: rgba(13, 21, 21, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        }
+        
+        .navbar-brand {
+            font-family: var(--font-display);
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            color: var(--primary) !important;
+            font-size: 1.25rem;
+        }
+        
+        .nav-link {
+            color: #849495 !important;
+            font-weight: 500;
+            font-size: 0.875rem;
+            transition: all 0.15s;
+            padding: 0.5rem 1rem !important;
+        }
+        
+        .nav-link:hover {
+            color: var(--on-surface) !important;
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        .nav-link.active {
+            color: var(--primary) !important;
+            border-bottom: 2px solid var(--primary);
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            padding: 6rem 0 4rem;
+            position: relative;
+        }
+        
+        .hero-gradient {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% -20%, rgba(0, 240, 255, 0.15), transparent 70%);
+            pointer-events: none;
+        }
+        
+        .badge-custom {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(0, 240, 255, 0.1);
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            border-radius: 9999px;
+            color: var(--primary);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--primary);
+            border-radius: 50%;
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .display-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Buttons */
+        .btn-primary-custom {
+            background: var(--primary);
+            color: var(--on-primary);
+            font-weight: 700;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            border: none;
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+            transition: all 0.2s;
+            font-size: 0.875rem;
+        }
+        
+        .btn-primary-custom:hover {
+            filter: brightness(1.1);
+            transform: scale(0.98);
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.5);
+        }
+        
+        .btn-secondary-custom {
+            background: transparent;
+            color: var(--on-surface);
+            font-weight: 500;
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.2s;
+            font-size: 0.875rem;
+        }
+        
+        .btn-secondary-custom:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Dashboard Preview */
+        .dashboard-preview {
+            position: relative;
+            margin-top: 4rem;
+        }
+        
+        .dashboard-glow {
+            position: absolute;
+            inset: -1rem;
+            background: linear-gradient(135deg, rgba(0, 240, 255, 0.3), rgba(192, 193, 255, 0.3));
+            border-radius: 1rem;
+            filter: blur(30px);
+            opacity: 0.25;
+            transition: opacity 0.3s;
+        }
+        
+        .dashboard-preview:hover .dashboard-glow {
+            opacity: 0.4;
+        }
+        
+        .dashboard-frame {
+            position: relative;
+            background: var(--surface-container);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.75rem;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+        
+        .window-controls {
+            display: flex;
+            gap: 0.5rem;
+            padding: 0.75rem 1rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .window-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            opacity: 0.5;
+        }
+        
+        .window-dot.red { background: #ff5f56; }
+        .window-dot.yellow { background: #ffbd2e; }
+        .window-dot.green { background: #27c93f; }
+        
+        /* Feature Cards */
+        .feature-card {
+            padding: 2rem;
+            height: 100%;
+            transition: all 0.3s;
+        }
+        
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(0, 240, 255, 0.1);
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-icon .material-symbols-outlined {
+            font-size: 28px;
+        }
+        
+        .feature-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--on-surface);
+        }
+        
+        .feature-description {
+            font-size: 0.875rem;
+            line-height: 1.6;
+            color: var(--on-surface-variant);
+        }
+        
+        /* Code Block */
+        .code-block {
+            background: rgba(11, 14, 20, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: rgba(0, 240, 255, 0.7);
+            margin-top: 1.5rem;
+            overflow-x: auto;
+        }
+        
+        .code-prompt {
+            color: #849495;
+        }
+        
+        /* Stats */
+        .stat-card {
+            text-align: center;
+            padding: 1.5rem;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--on-surface-variant);
+            margin-top: 0.5rem;
+        }
+        
+        /* Footer */
+        .footer-custom {
+            background: var(--surface-container);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 3rem 0 1.5rem;
+            margin-top: 6rem;
+        }
+        
+        .footer-link {
+            color: var(--on-surface-variant);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.2s;
+        }
+        
+        .footer-link:hover {
+            color: var(--primary);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 4rem 0 2rem;
+            }
+            
+            .display-title {
+                font-size: 2rem;
+            }
+            
+            .dashboard-preview {
+                margin-top: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand" href="#">PaaS2_Elite</a>
+            
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="material-symbols-outlined text-white">menu</span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">مشاهده‌پذیری</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">ویژگی‌ها</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://docs.paas2.ir" target="_blank">مستندات</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#support">پشتیبانی</a>
+                    </li>
+                </ul>
+                
+                <div class="d-flex align-items-center gap-3">
+                    <span class="material-symbols-outlined text-muted" role="button">notifications</span>
+                    <span class="material-symbols-outlined text-muted" role="button">terminal</span>
+                    <a href="https://app.paas2.ir" class="btn btn-primary-custom btn-sm">ورود به پنل</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-gradient"></div>
+        <div class="container position-relative">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <div class="badge-custom mb-4">
+                        <span class="pulse-dot"></span>
+                        <span>نسخه v2.4 اکنون در دسترس است</span>
+                    </div>
+                    
+                    <h1 class="display-title">
+                        پلتفرم ابری سطح‌سازمانی<br>
+                        <span class="gradient-text">با سرعت نور</span>
+                    </h1>
+                    
+                    <p class="lead text-muted mb-4" style="max-width: 700px; margin: 0 auto;">
+                        استقرار، مقیاس‌دهی، و مدیریت اپلیکیشن‌های خود را با یک پلتفرم Kubernetes مدیریت‌شده که برای سرعت، امنیت، و قابلیت مشاهده‌پذیری ساخته شده است، انجام دهید.
+                    </p>
+                    
+                    <div class="d-flex gap-3 justify-content-center flex-wrap">
+                        <a href="https://app.paas2.ir" class="btn btn-primary-custom">
+                            شروع رایگان
+                            <span class="material-symbols-outlined align-middle ms-1" style="font-size: 18px;">arrow_back</span>
+                        </a>
+                        <a href="#features" class="btn btn-secondary-custom">
+                            مشاهده ویژگی‌ها
+                            <span class="material-symbols-outlined align-middle ms-1" style="font-size: 18px;">expand_more</span>
+                        </a>
+                    </div>
+                    
+                    <!-- Dashboard Preview -->
+                    <div class="dashboard-preview">
+                        <div class="dashboard-glow"></div>
+                        <div class="dashboard-frame">
+                            <div class="window-controls d-flex justify-content-between align-items-center">
+                                <div class="d-flex gap-2">
+                                    <div class="window-dot red"></div>
+                                    <div class="window-dot yellow"></div>
+                                    <div class="window-dot green"></div>
+                                </div>
+                                <div class="text-center flex-grow-1">
+                                    <span class="badge bg-dark text-muted border border-secondary" style="font-family: var(--font-mono); font-size: 0.7rem;">
+                                        https://app.paas2.io
+                                    </span>
+                                </div>
+                                <div style="width: 52px;"></div>
+                            </div>
+                            <div class="p-4" style="background: rgba(11, 14, 20, 0.5); min-height: 400px;">
+                                <img src="screen.png" alt="Dashboard Preview" class="img-fluid rounded border border-secondary" 
+                                     onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                <div style="display: none;" class="text-center py-5">
+                                    <span class="material-symbols-outlined text-muted" style="font-size: 80px;">dashboard</span>
+                                    <p class="text-muted mt-3">پیش‌نمایش داشبورد PaaS2</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-3 col-6">
+                    <div class="stat-card glass-panel rounded">
+                        <span class="stat-number">99.99%</span>
+                        <div class="stat-label">زمان در دسترس بودن</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-card glass-panel rounded">
+                        <span class="stat-number">&lt;100ms</span>
+                        <div class="stat-label">تأخیر استقرار</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-card glass-panel rounded">
+                        <span class="stat-number">1M+</span>
+                        <div class="stat-label">استقرارهای موفق</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-card glass-panel rounded">
+                        <span class="stat-number">24/7</span>
+                        <div class="stat-label">پشتیبانی</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-5 mt-5">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8">
+                    <h2 class="display-5 fw-bold mb-3">قدرت در دستان شما</h2>
+                    <p class="lead text-muted">هر آنچه برای مقیاس‌پذیری جهانی نیاز دارید در یک پلتفرم واحد.</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Feature 1: Auto Deploy -->
+                <div class="col-lg-8">
+                    <div class="glass-panel feature-card rounded">
+                        <div class="feature-icon">
+                            <span class="material-symbols-outlined">rocket_launch</span>
+                        </div>
+                        <h3 class="feature-title">استقرار خودکار (Git-based)</h3>
+                        <p class="feature-description">
+                            هر push به مخزن شما به‌طور خودکار یک build، test، و deploy ایمن را آغاز می‌کند—بدون نیاز به پیکربندی CI/CD. استقرار در تولید در عرض چند ثانیه، با rollback آنی در صورت بروز هرگونه مشکل.
+                        </p>
+                        <div class="code-block">
+                            <div class="mb-1"><span class="code-prompt">$</span> git push origin main</div>
+                            <div class="mb-1">→ Building image... ✓</div>
+                            <div class="mb-1">→ Running tests... ✓</div>
+                            <div>→ Deployed to production in 4.2s ✓</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Feature 2: Kubernetes -->
+                <div class="col-lg-4">
+                    <div class="glass-panel feature-card rounded">
+                        <div class="feature-icon">
+                            <span class="material-symbols-outlined">settings_suggest</span>
+                        </div>
+                        <h3 class="feature-title">Kubernetes مدیریت‌شده</h3>
+                        <p class="feature-description">
+                            قدرت کامل K8s بدون پیچیدگی. ما orchestration، scaling، و self-healing را مدیریت می‌کنیم—شما روی کد تمرکز کنید.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Feature 3: Monitoring -->
+                <div class="col-lg-4">
+                    <div class="glass-panel feature-card rounded">
+                        <div class="feature-icon">
+                            <span class="material-symbols-outlined">monitoring</span>
+                        </div>
+                        <h3 class="feature-title">مشاهده‌پذیری کامل</h3>
+                        <p class="feature-description">
+                            Metrics، logs، و traces یکپارچه. Prometheus، Grafana، و distributed tracing از ابتدا پیکربندی شده‌اند.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Feature 4: Security -->
+                <div class="col-lg-4">
+                    <div class="glass-panel feature-card rounded">
+                        <div class="feature-icon">
+                            <span class="material-symbols-outlined">shield</span>
+                        </div>
+                        <h3 class="feature-title">امنیت سطح‌سازمانی</h3>
+                        <p class="feature-description">
+                            SSO با Keycloak، secrets management، network policies، و compliance scanning به‌صورت پیش‌فرض فعال است.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Feature 5: Autoscaling -->
+                <div class="col-lg-4">
+                    <div class="glass-panel feature-card rounded">
+                        <div class="feature-icon">
+                            <span class="material-symbols-outlined">speed</span>
+                        </div>
+                        <h3 class="feature-title">Autoscaling هوشمند</h3>
+                        <p class="feature-description">
+                            به‌طور خودکار بر اساس CPU، memory، یا metrics سفارشی مقیاس‌دهی کنید. Scale-to-zero برای محیط‌های dev/staging.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Feature 6: Multi-Region -->
+                <div class="col-lg-8">
+                    <div class="glass-panel feature-card rounded">
+                        <div class="feature-icon">
+                            <span class="material-symbols-outlined">public</span>
+                        </div>
+                        <h3 class="feature-title">استقرار چند منطقه‌ای</h3>
+                        <p class="feature-description">
+                            اپلیکیشن‌های خود را در چندین منطقه جغرافیایی با load balancing خودکار و failover مستقر کنید. تأخیر کم برای کاربران جهانی.
+                        </p>
+                        <div class="row g-3 mt-2">
+                            <div class="col-4">
+                                <div class="text-center p-3 rounded" style="background: rgba(0, 240, 255, 0.05); border: 1px solid rgba(0, 240, 255, 0.1);">
+                                    <span class="material-symbols-outlined text-success d-block mb-2">check_circle</span>
+                                    <small class="text-muted">Tehran</small>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="text-center p-3 rounded" style="background: rgba(0, 240, 255, 0.05); border: 1px solid rgba(0, 240, 255, 0.1);">
+                                    <span class="material-symbols-outlined text-success d-block mb-2">check_circle</span>
+                                    <small class="text-muted">Frankfurt</small>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="text-center p-3 rounded" style="background: rgba(0, 240, 255, 0.05); border: 1px solid rgba(0, 240, 255, 0.1);">
+                                    <span class="material-symbols-outlined text-success d-block mb-2">check_circle</span>
+                                    <small class="text-muted">Singapore</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-5 my-5">
+        <div class="container">
+            <div class="glass-panel rounded p-5 text-center">
+                <h2 class="display-6 fw-bold mb-3">آماده برای شروع هستید؟</h2>
+                <p class="lead text-muted mb-4">به هزاران توسعه‌دهنده که اپلیکیشن‌های خود را با PaaS2 مستقر می‌کنند بپیوندید.</p>
+                <div class="d-flex gap-3 justify-content-center flex-wrap">
+                    <a href="https://app.paas2.ir" class="btn btn-primary-custom btn-lg">شروع رایگان</a>
+                    <a href="https://admin.paas2.ir" class="btn btn-secondary-custom btn-lg">پنل مدیریت</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="support" class="footer-custom">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h5 class="fw-bold mb-3">PaaS2 Elite</h5>
+                    <p class="text-muted small">پلتفرم ابری نسل بعد برای توسعه‌دهندگان مدرن.</p>
+                </div>
+                <div class="col-lg-2 col-6">
+                    <h6 class="fw-semibold mb-3">محصول</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#features" class="footer-link">ویژگی‌ها</a></li>
+                        <li class="mb-2"><a href="https://api.paas2.ir/swagger/index.html" class="footer-link">API</a></li>
+                        <li class="mb-2"><a href="#" class="footer-link">قیمت‌گذاری</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-6">
+                    <h6 class="fw-semibold mb-3">منابع</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="footer-link">مستندات</a></li>
+                        <li class="mb-2"><a href="https://api.paas2.ir/swagger/index.html" class="footer-link">API Docs</a></li>
+                        <li class="mb-2"><a href="#" class="footer-link">راهنماها</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-6">
+                    <h6 class="fw-semibold mb-3">شرکت</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="footer-link">درباره ما</a></li>
+                        <li class="mb-2"><a href="#support" class="footer-link">پشتیبانی</a></li>
+                        <li class="mb-2"><a href="#" class="footer-link">وضعیت سیستم</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-6">
+                    <h6 class="fw-semibold mb-3">پنل‌ها</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="https://app.paas2.ir" class="footer-link">پنل کاربری</a></li>
+                        <li class="mb-2"><a href="https://admin.paas2.ir" class="footer-link">پنل مدیریت</a></li>
+                        <li class="mb-2"><a href="https://auth.paas2.ir" class="footer-link">احراز هویت</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4 border-secondary opacity-25">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="text-muted small mb-0">&copy; 2026 PaaS2 Elite. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="#" class="footer-link me-3">حریم خصوصی</a>
+                    <a href="#" class="footer-link me-3">شرایط استفاده</a>
+                    <a href="#" class="footer-link">قوانین</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
