@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>PaaS2 Elite - پلتفرم ابری نسل بعد</title>
+    <title>PaaS2 — پلتفرم خودمیزبان مدیریت اپلیکیشن‌های کانتینری</title>
     
     <!-- Bootstrap 5 RTL -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
@@ -331,19 +331,270 @@
             color: var(--primary);
         }
         
+        /* Architecture */
+        .arch-node {
+            background: var(--surface-container);
+            border: 1px solid var(--outline-variant);
+            border-radius: 0.5rem;
+            padding: 0.75rem 1.25rem;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: var(--on-surface);
+            text-align: center;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+        .arch-node.primary-node {
+            border-color: rgba(0, 240, 255, 0.4);
+            color: var(--primary);
+            box-shadow: 0 0 12px rgba(0, 240, 255, 0.1);
+        }
+        .arch-node.secondary-node {
+            border-color: rgba(192, 193, 255, 0.3);
+            color: var(--secondary);
+        }
+        .arch-connector {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--outline);
+            font-size: 0.7rem;
+            padding: 0 0.25rem;
+        }
+        .arch-connector-v {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.25rem;
+            color: var(--outline);
+            font-size: 0.65rem;
+        }
+        .arch-label {
+            font-size: 0.65rem;
+            color: var(--outline);
+            letter-spacing: 0.05em;
+        }
+        .arch-line-v {
+            width: 1px;
+            height: 28px;
+            background: var(--outline-variant);
+            margin: 0 auto;
+        }
+        .arch-line-h {
+            height: 1px;
+            flex: 1;
+            background: var(--outline-variant);
+        }
+
+        /* Module Cards */
+        .module-card {
+            padding: 1.75rem;
+            height: 100%;
+            position: relative;
+        }
+        .module-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+        .module-icon {
+            width: 44px;
+            height: 44px;
+            background: rgba(0, 240, 255, 0.08);
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+        .module-icon .material-symbols-outlined { font-size: 24px; }
+        .module-icon.secondary-icon {
+            background: rgba(192, 193, 255, 0.08);
+            color: var(--secondary);
+        }
+        .badge-planned {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            padding: 0.25rem 0.6rem;
+            border-radius: 9999px;
+            background: rgba(254, 214, 57, 0.1);
+            border: 1px solid rgba(254, 214, 57, 0.25);
+            color: #fed639;
+            text-transform: uppercase;
+        }
+        .badge-active {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            padding: 0.25rem 0.6rem;
+            border-radius: 9999px;
+            background: rgba(105, 240, 174, 0.1);
+            border: 1px solid rgba(105, 240, 174, 0.25);
+            color: #69f0ae;
+            text-transform: uppercase;
+        }
+        .module-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--on-surface);
+        }
+        .module-path {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--outline);
+            margin-bottom: 0.75rem;
+        }
+        .module-description {
+            font-size: 0.8125rem;
+            line-height: 1.6;
+            color: var(--on-surface-variant);
+            margin-bottom: 1rem;
+        }
+        .tech-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--on-surface-variant);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--outline-variant);
+            border-radius: 0.25rem;
+            padding: 0.2rem 0.5rem;
+            margin: 0.15rem;
+        }
+
+        /* Workflow */
+        .workflow-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid var(--outline-variant);
+            background: var(--surface-container);
+            transition: all 0.2s;
+        }
+        .workflow-step:hover {
+            border-color: rgba(0, 240, 255, 0.2);
+        }
+        .step-num {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(0, 240, 255, 0.1);
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+        .step-content h6 {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--on-surface);
+            margin-bottom: 0.25rem;
+        }
+        .step-content p {
+            font-size: 0.8rem;
+            color: var(--on-surface-variant);
+            margin: 0;
+        }
+
+        /* API Endpoint table */
+        .endpoint-row {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.625rem 0.75rem;
+            border-radius: 0.375rem;
+            border: 1px solid transparent;
+            transition: all 0.15s;
+            font-size: 0.8rem;
+        }
+        .endpoint-row:hover {
+            background: rgba(255, 255, 255, 0.03);
+            border-color: var(--outline-variant);
+        }
+        .method-badge {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 0.15rem 0.45rem;
+            border-radius: 0.25rem;
+            min-width: 42px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+        .method-get { background: rgba(105, 240, 174, 0.15); color: #69f0ae; }
+        .method-post { background: rgba(0, 240, 255, 0.15); color: var(--primary); }
+        .method-put { background: rgba(254, 214, 57, 0.15); color: #fed639; }
+        .method-delete { background: rgba(255, 180, 171, 0.15); color: var(--error); }
+        .endpoint-path {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--on-surface-variant);
+            flex-shrink: 0;
+        }
+        .endpoint-desc {
+            font-size: 0.8rem;
+            color: var(--outline);
+            margin-right: auto;
+        }
+
+        /* Section headings */
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+        }
+        .section-title {
+            font-size: clamp(1.5rem, 3vw, 2.25rem);
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            color: var(--on-surface);
+            margin-bottom: 1rem;
+        }
+        .section-subtitle {
+            font-size: 0.9375rem;
+            line-height: 1.7;
+            color: var(--on-surface-variant);
+            max-width: 560px;
+        }
+
+        /* Divider */
+        .section-divider {
+            border: none;
+            border-top: 1px solid var(--outline-variant);
+            opacity: 0.5;
+            margin: 5rem 0;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .hero-section {
                 padding: 4rem 0 2rem;
             }
-            
             .display-title {
                 font-size: 2rem;
             }
-            
             .dashboard-preview {
                 margin-top: 2rem;
             }
+            .endpoint-path, .endpoint-desc { font-size: 0.7rem; }
+            .arch-node { font-size: 0.7rem; padding: 0.5rem 0.75rem; }
         }
     </style>
 </head>
@@ -351,7 +602,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
         <div class="container-fluid px-4">
-            <a class="navbar-brand" href="#">PaaS2_Elite</a>
+            <a class="navbar-brand" href="#">PaaS2_</a>
             
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="material-symbols-outlined text-white">menu</span>
@@ -360,29 +611,31 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">مشاهده‌پذیری</a>
+                        <a class="nav-link active" href="#architecture">معماری</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#features">ویژگی‌ها</a>
+                        <a class="nav-link" href="#modules">ماژول‌ها</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#cli">CLI</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://api.devmad.ir/swagger/index.html" target="_blank">Swagger API</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="https://docs.paas2.ir" target="_blank">مستندات</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#support">پشتیبانی</a>
-                    </li>
                 </ul>
                 
-                <div class="d-flex align-items-center gap-3">
-                    <span class="material-symbols-outlined text-muted" role="button">notifications</span>
-                    <span class="material-symbols-outlined text-muted" role="button">terminal</span>
-                    <a href="https://app.paas2.ir" class="btn btn-primary-custom btn-sm">ورود به پنل</a>
+                <div class="d-flex align-items-center gap-2">
+                    <a href="https://user-panel-p2.devmad.ir" class="btn btn-secondary-custom btn-sm">پنل کاربری</a>
+                    <a href="https://admin-panel-p2.devmad.ir/" class="btn btn-primary-custom btn-sm">پنل مدیریت</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- ═══════════════ HERO ═══════════════ -->
     <section class="hero-section">
         <div class="hero-gradient"></div>
         <div class="container position-relative">
@@ -390,30 +643,30 @@
                 <div class="col-lg-10 text-center">
                     <div class="badge-custom mb-4">
                         <span class="pulse-dot"></span>
-                        <span>نسخه v2.4 اکنون در دسترس است</span>
+                        <span>پلتفرم  PaaS2 v2.4</span>
                     </div>
                     
                     <h1 class="display-title">
-                        پلتفرم ابری سطح‌سازمانی<br>
-                        <span class="gradient-text">با سرعت نور</span>
+                        استقرار و مدیریت<br>
+                        <span class="gradient-text">اپلیکیشن‌های کانتینری</span>
                     </h1>
                     
-                    <p class="lead text-muted mb-4" style="max-width: 700px; margin: 0 auto;">
-                        استقرار، مقیاس‌دهی، و مدیریت اپلیکیشن‌های خود را با یک پلتفرم Kubernetes مدیریت‌شده که برای سرعت، امنیت، و قابلیت مشاهده‌پذیری ساخته شده است، انجام دهید.
+                    <p class="lead text-muted mb-4" style="max-width: 680px; margin: 0 auto;">
+                        PaaS2 یک پلتفرم خودمیزبان (Self-Hosted) است که به توسعه‌دهندگان امکان استقرار، مدیریت، و مقیاس‌دهی اپلیکیشن‌های کانتینری روی Kubernetes را می‌دهد — شبیه Heroku یا Render، اما با کنترل کامل روی زیرساخت.
                     </p>
                     
                     <div class="d-flex gap-3 justify-content-center flex-wrap">
-                        <a href="https://app.paas2.ir" class="btn btn-primary-custom">
-                            شروع رایگان
+                        <a href="https://user-panel-p2.devmad.ir" class="btn btn-primary-custom">
+                            ورود به پنل کاربری
                             <span class="material-symbols-outlined align-middle ms-1" style="font-size: 18px;">arrow_back</span>
                         </a>
-                        <a href="#features" class="btn btn-secondary-custom">
-                            مشاهده ویژگی‌ها
-                            <span class="material-symbols-outlined align-middle ms-1" style="font-size: 18px;">expand_more</span>
+                        <a href="https://api.devmad.ir/swagger/index.html" target="_blank" class="btn btn-secondary-custom">
+                            <span class="material-symbols-outlined align-middle me-1" style="font-size: 18px;">api</span>
+                            مشاهده Swagger
                         </a>
                     </div>
                     
-                    <!-- Dashboard Preview -->
+                    <!-- Architecture Visual Preview -->
                     <div class="dashboard-preview">
                         <div class="dashboard-glow"></div>
                         <div class="dashboard-frame">
@@ -425,17 +678,59 @@
                                 </div>
                                 <div class="text-center flex-grow-1">
                                     <span class="badge bg-dark text-muted border border-secondary" style="font-family: var(--font-mono); font-size: 0.7rem;">
-                                        https://app.paas2.io
+                                        PaaS2 — Platform Architecture
                                     </span>
                                 </div>
                                 <div style="width: 52px;"></div>
                             </div>
-                            <div class="p-4" style="background: rgba(11, 14, 20, 0.5); min-height: 400px;">
-                                <img src="screen.png" alt="Dashboard Preview" class="img-fluid rounded border border-secondary" 
-                                     onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                                <div style="display: none;" class="text-center py-5">
-                                    <span class="material-symbols-outlined text-muted" style="font-size: 80px;">dashboard</span>
-                                    <p class="text-muted mt-3">پیش‌نمایش داشبورد PaaS2</p>
+                            <div class="p-4" style="background: rgba(8, 15, 16, 0.7); min-height: 320px;">
+                                <img src="screen.png" alt="Dashboard Preview" class="img-fluid rounded border border-secondary"
+                                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <!-- Architecture Diagram Fallback -->
+                                <div style="display:none; flex-direction: column; align-items: center; gap: 0.75rem; padding: 1.5rem 0;">
+                                    <!-- Keycloak -->
+                                    <div class="arch-node primary-node d-inline-flex align-items-center gap-2">
+                                        <span class="material-symbols-outlined" style="font-size:16px;">key</span>
+                                        Keycloak (SSO / IAM)
+                                    </div>
+                                    <div class="arch-line-v"></div>
+                                    <!-- Clients Row -->
+                                    <div class="d-flex align-items-center gap-2 flex-wrap justify-content-center">
+                                        <div class="arch-node secondary-node d-inline-flex align-items-center gap-1">
+                                            <span class="material-symbols-outlined" style="font-size:14px;">admin_panel_settings</span>
+                                            Admin Panel
+                                        </div>
+                                        <div class="arch-node secondary-node d-inline-flex align-items-center gap-1">
+                                            <span class="material-symbols-outlined" style="font-size:14px;">dashboard</span>
+                                            User Panel
+                                        </div>
+                                        <div class="arch-node secondary-node d-inline-flex align-items-center gap-1">
+                                            <span class="material-symbols-outlined" style="font-size:14px;">terminal</span>
+                                            CLI
+                                        </div>
+                                    </div>
+                                    <div class="arch-line-v"></div>
+                                    <!-- API Server -->
+                                    <div class="arch-node primary-node d-inline-flex align-items-center gap-2">
+                                        <span class="material-symbols-outlined" style="font-size:16px;">api</span>
+                                        API Server (Go / Gin)
+                                    </div>
+                                    <div class="arch-line-v"></div>
+                                    <!-- Storage Row -->
+                                    <div class="d-flex align-items-center gap-2 flex-wrap justify-content-center">
+                                        <div class="arch-node d-inline-flex align-items-center gap-1">
+                                            <span class="material-symbols-outlined" style="font-size:14px;">storage</span>
+                                            PostgreSQL 15
+                                        </div>
+                                        <div class="arch-node d-inline-flex align-items-center gap-1">
+                                            <span class="material-symbols-outlined" style="font-size:14px;">deployed_code</span>
+                                            Kubernetes
+                                        </div>
+                                        <div class="arch-node d-inline-flex align-items-center gap-1">
+                                            <span class="material-symbols-outlined" style="font-size:14px;">notifications_active</span>
+                                            Alertmanager
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -445,215 +740,728 @@
         </div>
     </section>
 
-    <!-- Stats Section -->
+    <!-- ═══════════════ STATS ═══════════════ -->
     <section class="py-5">
         <div class="container">
             <div class="row g-4">
                 <div class="col-md-3 col-6">
                     <div class="stat-card glass-panel rounded">
-                        <span class="stat-number">99.99%</span>
-                        <div class="stat-label">زمان در دسترس بودن</div>
+                        <span class="stat-number">8</span>
+                        <div class="stat-label">ماژول مستقل</div>
                     </div>
                 </div>
                 <div class="col-md-3 col-6">
                     <div class="stat-card glass-panel rounded">
-                        <span class="stat-number">&lt;100ms</span>
-                        <div class="stat-label">تأخیر استقرار</div>
+                        <span class="stat-number">2</span>
+                        <div class="stat-label">پنل مدیریتی (Admin + User)</div>
                     </div>
                 </div>
                 <div class="col-md-3 col-6">
                     <div class="stat-card glass-panel rounded">
-                        <span class="stat-number">1M+</span>
-                        <div class="stat-label">استقرارهای موفق</div>
+                        <span class="stat-number">4</span>
+                        <div class="stat-label">ارائه‌دهنده هوش مصنوعی</div>
                     </div>
                 </div>
                 <div class="col-md-3 col-6">
                     <div class="stat-card glass-panel rounded">
-                        <span class="stat-number">24/7</span>
-                        <div class="stat-label">پشتیبانی</div>
+                        <span class="stat-number">REST</span>
+                        <div class="stat-label">API با Swagger / OpenAPI 2.0</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section id="features" class="py-5 mt-5">
+    <hr class="section-divider">
+
+    <!-- ═══════════════ ARCHITECTURE ═══════════════ -->
+    <section id="architecture" class="py-5">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-5">
+                    <div class="section-label">معماری سیستم</div>
+                    <h2 class="section-title">طراحی Loosely Coupled، مقیاس‌پذیر</h2>
+                    <p class="section-subtitle">
+                        تمام رابط‌های کاربری (Admin Panel، User Panel، CLI) از طریق یک <strong>API Server</strong> مرکزی با سیستم ارتباط برقرار می‌کنند. احراز هویت به‌صورت متمرکز از طریق <strong>Keycloak</strong> با دو Realm جداگانه برای ادمین و کاربر انجام می‌شود.
+                    </p>
+                    <div class="mt-4 d-flex flex-column gap-3">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="feature-icon" style="width:36px;height:36px;flex-shrink:0;">
+                                <span class="material-symbols-outlined" style="font-size:18px;">key</span>
+                            </div>
+                            <div>
+                                <div class="fw-semibold" style="font-size:0.875rem;">Keycloak — SSO / IAM</div>
+                                <div style="font-size:0.8rem; color:var(--on-surface-variant);">دو Realm: paas2-admin و paas2-users</div>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="feature-icon" style="width:36px;height:36px;flex-shrink:0;">
+                                <span class="material-symbols-outlined" style="font-size:18px;">hub</span>
+                            </div>
+                            <div>
+                                <div class="fw-semibold" style="font-size:0.875rem;">API Server — مرکز یکپارچه‌سازی</div>
+                                <div style="font-size:0.8rem; color:var(--on-surface-variant);">Go 1.21 + Gin — تمام منطق کسب‌وکار اینجاست</div>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="feature-icon" style="width:36px;height:36px;flex-shrink:0;">
+                                <span class="material-symbols-outlined" style="font-size:18px;">smart_toy</span>
+                            </div>
+                            <div>
+                                <div class="fw-semibold" style="font-size:0.875rem;">Admin Assistant — عامل هوشمند</div>
+                                <div style="font-size:0.8rem; color:var(--on-surface-variant);">پایش خودکار، تشخیص مشکل، و ارسال هشدار</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="glass-panel rounded p-4">
+                        <!-- Top row: Keycloak -->
+                        <div class="d-flex justify-content-center mb-3">
+                            <div class="arch-node primary-node d-inline-flex align-items-center gap-2 px-4">
+                                <span class="material-symbols-outlined" style="font-size:16px;">key</span>
+                                Keycloak (SSO / IAM)
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center"><div class="arch-line-v"></div></div>
+                        <!-- Client row -->
+                        <div class="d-flex justify-content-center gap-2 mb-1 flex-wrap">
+                            <div class="arch-node secondary-node d-inline-flex align-items-center gap-1">
+                                <span class="material-symbols-outlined" style="font-size:13px;">admin_panel_settings</span>
+                                Admin Panel<br><span class="arch-label">React 18 / MUI</span>
+                            </div>
+                            <div class="arch-node secondary-node d-inline-flex align-items-center gap-1">
+                                <span class="material-symbols-outlined" style="font-size:13px;">dashboard</span>
+                                User Panel<br><span class="arch-label">React 18 / MUI</span>
+                            </div>
+                            <div class="arch-node secondary-node d-inline-flex align-items-center gap-1">
+                                <span class="material-symbols-outlined" style="font-size:13px;">terminal</span>
+                                CLI<br><span class="arch-label">Go / Cobra</span>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center"><div class="arch-line-v"></div></div>
+                        <div class="d-flex justify-content-center mb-1">
+                            <div class="text-center" style="font-size:0.65rem;color:var(--outline);">REST API (HTTP/JSON)</div>
+                        </div>
+                        <!-- API Server -->
+                        <div class="d-flex justify-content-center mb-1">
+                            <div class="arch-node primary-node d-inline-flex align-items-center gap-2 px-4">
+                                <span class="material-symbols-outlined" style="font-size:16px;">api</span>
+                                API Server (Go / Gin)
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center mb-1">
+                            <div class="text-center" style="font-size:0.65rem;color:var(--outline);">← Admin Assistant &nbsp;|&nbsp; ← Cron Module &nbsp;|&nbsp; ← User Assistant</div>
+                        </div>
+                        <div class="d-flex justify-content-center"><div class="arch-line-v"></div></div>
+                        <!-- Storage row -->
+                        <div class="d-flex justify-content-center gap-2 flex-wrap">
+                            <div class="arch-node d-inline-flex align-items-center gap-1">
+                                <span class="material-symbols-outlined" style="font-size:13px;">storage</span>
+                                PostgreSQL 15
+                            </div>
+                            <div class="arch-node d-inline-flex align-items-center gap-1">
+                                <span class="material-symbols-outlined" style="font-size:13px;">deployed_code</span>
+                                Kubernetes
+                            </div>
+                            <div class="arch-node d-inline-flex align-items-center gap-1">
+                                <span class="material-symbols-outlined" style="font-size:13px;">notifications_active</span>
+                                Alertmanager
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ═══════════════ MODULES ═══════════════ -->
+    <section id="modules" class="py-5">
+        <div class="container">
+            <div class="mb-5">
+                <div class="section-label">ماژول‌های سیستم</div>
+                <h2 class="section-title">۸ سرویس مستقل و یکپارچه</h2>
+                <p class="section-subtitle">هر ماژول یک مسئولیت مشخص دارد و از طریق API Server با بقیه ارتباط برقرار می‌کند.</p>
+            </div>
+            <div class="row g-4">
+
+                <!-- 1. API Server -->
+                <div class="col-lg-6">
+                    <div class="glass-panel module-card rounded">
+                        <div class="module-header">
+                            <div class="module-icon">
+                                <span class="material-symbols-outlined">api</span>
+                            </div>
+                            <span class="badge-active">فعال</span>
+                        </div>
+                        <div class="module-title">۱. API Server</div>
+                        <div class="module-path">api-server/ — Go 1.21 + Gin</div>
+                        <p class="module-description">
+                            ستون فقرات PaaS2. تمام کلاینت‌ها از طریق آن ارتباط برقرار می‌کنند. REST API نسخه‌بندی شده در <code>/api/v1</code>، احراز هویت با Keycloak OIDC، مدیریت دیتابیس از طریق GORM، و orchestration روی Kubernetes.
+                        </p>
+                        <div class="d-flex flex-wrap gap-1">
+                            <span class="tech-tag">Go 1.21</span>
+                            <span class="tech-tag">Gin</span>
+                            <span class="tech-tag">GORM</span>
+                            <span class="tech-tag">go-oidc</span>
+                            <span class="tech-tag">Swagger</span>
+                            <span class="tech-tag">Prometheus</span>
+                            <span class="tech-tag">Logrus</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Database -->
+                <div class="col-lg-6">
+                    <div class="glass-panel module-card rounded">
+                        <div class="module-header">
+                            <div class="module-icon">
+                                <span class="material-symbols-outlined">storage</span>
+                            </div>
+                            <span class="badge-active">فعال</span>
+                        </div>
+                        <div class="module-title">۲. Database</div>
+                        <div class="module-path">database/ — PostgreSQL 15</div>
+                        <p class="module-description">
+                            مدیریت Schema از طریق فایل‌های Migration ترتیب‌دار SQL. جداول اصلی: users، applications، deployments، tickets، issues، billing_records، credit_transactions. کلیدهای اصلی UUID.
+                        </p>
+                        <div class="d-flex flex-wrap gap-1">
+                            <span class="tech-tag">PostgreSQL 15</span>
+                            <span class="tech-tag">UUID PKs</span>
+                            <span class="tech-tag">Docker Compose</span>
+                            <span class="tech-tag">Migration SQL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Admin Assistant -->
+                <div class="col-lg-6">
+                    <div class="glass-panel module-card rounded">
+                        <div class="module-header">
+                            <div class="module-icon">
+                                <span class="material-symbols-outlined">smart_toy</span>
+                            </div>
+                            <span class="badge-active">فعال</span>
+                        </div>
+                        <div class="module-title">۳. Admin Assistant</div>
+                        <div class="module-path">admin-assistant/ — Go 1.23</div>
+                        <p class="module-description">
+                            عامل هوشمند پس‌زمینه که پلتفرم را پایش می‌کند، مشکلات را با کمک هوش مصنوعی تشخیص می‌دهد، و یا به‌صورت خودکار رفع می‌کند یا از طریق Alertmanager هشدار می‌فرستد.
+                        </p>
+                        <div class="d-flex flex-wrap gap-1">
+                            <span class="tech-tag">Go 1.23</span>
+                            <span class="tech-tag">resty</span>
+                            <span class="tech-tag">robfig/cron</span>
+                            <span class="tech-tag">Ollama</span>
+                            <span class="tech-tag">Gemini</span>
+                            <span class="tech-tag">OpenAI</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Admin Panel -->
+                <div class="col-lg-6">
+                    <div class="glass-panel module-card rounded">
+                        <div class="module-header">
+                            <div class="module-icon secondary-icon">
+                                <span class="material-symbols-outlined">admin_panel_settings</span>
+                            </div>
+                            <span class="badge-active">فعال</span>
+                        </div>
+                        <div class="module-title">۴. Admin Panel</div>
+                        <div class="module-path">admin-panel/ — React 18 + MUI v5</div>
+                        <p class="module-description">
+                            رابط مدیریتی تک‌صفحه‌ای برای ادمین‌های پلتفرم. صفحات: Dashboard، Users، Applications، Tickets، Issues (AI-detected)، SystemStatus. محافظت‌شده با Keycloak realm مدیریتی.
+                        </p>
+                        <div class="d-flex flex-wrap gap-1">
+                            <span class="tech-tag">React 18</span>
+                            <span class="tech-tag">Material-UI v5</span>
+                            <span class="tech-tag">Axios</span>
+                            <span class="tech-tag">React Router v6</span>
+                            <span class="tech-tag">Keycloak JS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. User Panel -->
+                <div class="col-lg-6">
+                    <div class="glass-panel module-card rounded">
+                        <div class="module-header">
+                            <div class="module-icon secondary-icon">
+                                <span class="material-symbols-outlined">dashboard</span>
+                            </div>
+                            <span class="badge-active">فعال</span>
+                        </div>
+                        <div class="module-title">۵. User Panel</div>
+                        <div class="module-path">user-panel/ — React 18 + MUI v5</div>
+                        <p class="module-description">
+                            پورتال سلف‌سرویس برای کاربران نهایی. ایجاد، استقرار، مقیاس‌دهی، و حذف اپلیکیشن، مشاهده لاگ‌ها، مدیریت Billing و اعتبار، و تنظیمات پروفایل. محافظت‌شده با Keycloak realm کاربری.
+                        </p>
+                        <div class="d-flex flex-wrap gap-1">
+                            <span class="tech-tag">React 18</span>
+                            <span class="tech-tag">Material-UI v5</span>
+                            <span class="tech-tag">Axios</span>
+                            <span class="tech-tag">React Router v6</span>
+                            <span class="tech-tag">Keycloak JS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. CLI -->
+                <div class="col-lg-6">
+                    <div class="glass-panel module-card rounded">
+                        <div class="module-header">
+                            <div class="module-icon">
+                                <span class="material-symbols-outlined">terminal</span>
+                            </div>
+                            <span class="badge-active">فعال</span>
+                        </div>
+                        <div class="module-title">۶. CLI</div>
+                        <div class="module-path">cli/ — Go + Cobra + Viper</div>
+                        <p class="module-description">
+                            ابزار خط‌فرمان برای توسعه‌دهندگان و Pipeline های CI/CD. مشابه Heroku CLI. احراز هویت، مدیریت اپلیکیشن، استقرار، مقیاس‌دهی، و مشاهده لاگ — همه از ترمینال.
+                        </p>
+                        <div class="d-flex flex-wrap gap-1">
+                            <span class="tech-tag">Go</span>
+                            <span class="tech-tag">Cobra</span>
+                            <span class="tech-tag">Viper</span>
+                            <span class="tech-tag">net/http</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. Cron Module (Planned) -->
+                <div class="col-lg-6">
+                    <div class="glass-panel module-card rounded" style="opacity:0.75;">
+                        <div class="module-header">
+                            <div class="module-icon" style="background:rgba(254,214,57,0.08);color:#fed639;">
+                                <span class="material-symbols-outlined">schedule</span>
+                            </div>
+                            <span class="badge-planned">اسپرینت بعدی</span>
+                        </div>
+                        <div class="module-title">۷. Cron Module</div>
+                        <div class="module-path">cron/ — Go + robfig/cron</div>
+                        <p class="module-description">
+                            سرویس اختصاصی Job های زمان‌بندی‌شده: جمع‌آوری متریک منابع (هر ۵ دقیقه)، محاسبه و کسر هزینه Billing (هر ساعت)، پاکسازی منابع قدیمی Kubernetes، و ارسال Security Scan به User Assistant.
+                        </p>
+                        <div class="d-flex flex-wrap gap-1">
+                            <span class="tech-tag">Go</span>
+                            <span class="tech-tag">robfig/cron</span>
+                            <span class="tech-tag">Kubernetes API</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8. User Assistant (Planned) -->
+                <div class="col-lg-6">
+                    <div class="glass-panel module-card rounded" style="opacity:0.75;">
+                        <div class="module-header">
+                            <div class="module-icon" style="background:rgba(254,214,57,0.08);color:#fed639;">
+                                <span class="material-symbols-outlined">support_agent</span>
+                            </div>
+                            <span class="badge-planned">اسپرینت بعدی</span>
+                        </div>
+                        <div class="module-title">۸. User Assistant</div>
+                        <div class="module-path">user-assistant/ — Go + Ollama/Gemini</div>
+                        <p class="module-description">
+                            دستیار هوش مصنوعی اختصاصی کاربران: کمک به توسعه (پیشنهاد کد)، تشخیص مشکلات اپلیکیشن (لاگ + crash analysis)، و اسکن امنیتی شبانه کد و وابستگی‌ها با گزارش CVE.
+                        </p>
+                        <div class="d-flex flex-wrap gap-1">
+                            <span class="tech-tag">Go</span>
+                            <span class="tech-tag">Ollama</span>
+                            <span class="tech-tag">Gemini</span>
+                            <span class="tech-tag">DeepSeek</span>
+                            <span class="tech-tag">Git clone</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ═══════════════ ADMIN ASSISTANT WORKFLOW ═══════════════ -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-5 align-items-start">
+                <div class="col-lg-5">
+                    <div class="section-label">Admin Assistant</div>
+                    <h2 class="section-title">پایش هوشمند و خودکار پلتفرم</h2>
+                    <p class="section-subtitle">
+                        Admin Assistant یک عامل پس‌زمینه است که به‌صورت مداوم وضعیت Cluster را Poll می‌کند، مشکلات را شناسایی می‌کند، و با کمک هوش مصنوعی تصمیم می‌گیرد که خودش رفع کند یا به ادمین هشدار بدهد.
+                    </p>
+                    <div class="mt-3 d-flex flex-wrap gap-2">
+                        <div style="padding:0.5rem 0.875rem; border-radius:0.375rem; background:rgba(0,240,255,0.08); border:1px solid rgba(0,240,255,0.15); font-size:0.8rem; color:var(--primary);">
+                            <span class="material-symbols-outlined align-middle me-1" style="font-size:14px;">deployed_code_update</span>
+                            Crash-loop Detection
+                        </div>
+                        <div style="padding:0.5rem 0.875rem; border-radius:0.375rem; background:rgba(0,240,255,0.08); border:1px solid rgba(0,240,255,0.15); font-size:0.8rem; color:var(--primary);">
+                            <span class="material-symbols-outlined align-middle me-1" style="font-size:14px;">memory</span>
+                            High Resource Alert
+                        </div>
+                        <div style="padding:0.5rem 0.875rem; border-radius:0.375rem; background:rgba(0,240,255,0.08); border:1px solid rgba(0,240,255,0.15); font-size:0.8rem; color:var(--primary);">
+                            <span class="material-symbols-outlined align-middle me-1" style="font-size:14px;">auto_fix_high</span>
+                            Auto Remediation
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="d-flex flex-column gap-3">
+                        <div class="workflow-step">
+                            <div class="step-num">۱</div>
+                            <div class="step-content">
+                                <h6>Poll — جمع‌آوری وضعیت Cluster</h6>
+                                <p>هر ۵ دقیقه <code>GET /api/v1/admin/cluster-status</code> برای دریافت وضعیت node ها، pod ها، deploymentها، و رویدادها.</p>
+                            </div>
+                        </div>
+                        <div class="workflow-step">
+                            <div class="step-num">۲</div>
+                            <div class="step-content">
+                                <h6>Detect — شناسایی مشکلات</h6>
+                                <p>بررسی crash-loop ها، node های ناسالم، نرخ خطای بالا، و مصرف بیش از حد CPU/Memory.</p>
+                            </div>
+                        </div>
+                        <div class="workflow-step">
+                            <div class="step-num">۳</div>
+                            <div class="step-content">
+                                <h6>Analyze — تحلیل با هوش مصنوعی</h6>
+                                <p>ارسال <code>IssueData</code> به AI Provider (Ollama / Gemini / DeepSeek / OpenAI) و دریافت <code>Analysis</code> با Severity و Action پیشنهادی.</p>
+                            </div>
+                        </div>
+                        <div class="workflow-step">
+                            <div class="step-num">۴</div>
+                            <div class="step-content">
+                                <h6>Decide — تصمیم و اقدام</h6>
+                                <p>شدت <code>low/medium</code>: رفع خودکار از طریق Admin API. شدت <code>high/critical</code>: POST هشدار به Alertmanager.</p>
+                            </div>
+                        </div>
+                        <div class="workflow-step">
+                            <div class="step-num">۵</div>
+                            <div class="step-content">
+                                <h6>Report — ثبت در API Server</h6>
+                                <p>ثبت Issue با کامنت AI و وضعیت رفع مشکل از طریق <code>POST /api/v1/admin/issues</code>.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ═══════════════ CLI SHOWCASE ═══════════════ -->
+    <section id="cli" class="py-5">
+        <div class="container">
+            <div class="row g-5 align-items-start">
+                <div class="col-lg-6">
+                    <div class="section-label">ابزار خط‌فرمان</div>
+                    <h2 class="section-title">paas2 CLI — مثل Heroku</h2>
+                    <p class="section-subtitle">
+                        تمام عملیات پلتفرم از ترمینال. ایجاد اپلیکیشن، استقرار، مقیاس‌دهی، مشاهده لاگ، و مدیریت متغیرهای محیطی — ایده‌آل برای CI/CD pipeline.
+                    </p>
+                    <div class="mt-4">
+                        <div class="code-block">
+                            <div class="mb-1" style="color:var(--outline);font-size:0.7rem;"># احراز هویت</div>
+                            <div class="mb-3"><span class="code-prompt">$</span> paas2 login</div>
+
+                            <div class="mb-1" style="color:var(--outline);font-size:0.7rem;"># مدیریت اپلیکیشن</div>
+                            <div class="mb-1"><span class="code-prompt">$</span> paas2 apps:create my-app</div>
+                            <div class="mb-1"><span class="code-prompt">$</span> paas2 apps:list</div>
+                            <div class="mb-3"><span class="code-prompt">$</span> paas2 apps:info my-app</div>
+
+                            <div class="mb-1" style="color:var(--outline);font-size:0.7rem;"># استقرار و عملیات</div>
+                            <div class="mb-1"><span class="code-prompt">$</span> paas2 deploy --app my-app --branch main</div>
+                            <div class="mb-1"><span class="code-prompt">$</span> paas2 scale --app my-app --replicas 3</div>
+                            <div class="mb-3"><span class="code-prompt">$</span> paas2 logs --app my-app --tail</div>
+
+                            <div class="mb-1" style="color:var(--outline);font-size:0.7rem;"># متغیرهای محیطی</div>
+                            <div class="mb-1"><span class="code-prompt">$</span> paas2 apps:env set DATABASE_URL=postgres://...</div>
+                            <div><span class="code-prompt">$</span> paas2 apps:env list</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="section-label">احراز هویت دو‌Realm</div>
+                    <h2 class="section-title">Keycloak SSO با Circuit Breaker</h2>
+                    <p class="section-subtitle mb-4">
+                        دو Realm جداگانه برای جداسازی کامل دسترسی ادمین از کاربر. یک Circuit Breaker از تمام فراخوانی‌های Keycloak محافظت می‌کند تا خرابی IAM به سرویس‌های دیگر سرایت نکند.
+                    </p>
+                    <div class="d-flex flex-column gap-3">
+                        <div class="glass-panel rounded p-3">
+                            <div class="d-flex align-items-center gap-3 mb-2">
+                                <span class="material-symbols-outlined" style="color:var(--primary);font-size:20px;">manage_accounts</span>
+                                <div>
+                                    <div class="fw-semibold" style="font-size:0.875rem;">Realm: <code>paas2-admin</code></div>
+                                    <div style="font-size:0.8rem;color:var(--on-surface-variant);">Admin Panel — نقش‌ها: admin</div>
+                                </div>
+                            </div>
+                            <div style="font-family:var(--font-mono);font-size:0.7rem;color:var(--outline);">Client ID: admin-panel</div>
+                        </div>
+                        <div class="glass-panel rounded p-3">
+                            <div class="d-flex align-items-center gap-3 mb-2">
+                                <span class="material-symbols-outlined" style="color:var(--secondary);font-size:20px;">person</span>
+                                <div>
+                                    <div class="fw-semibold" style="font-size:0.875rem;">Realm: <code>paas2-users</code></div>
+                                    <div style="font-size:0.8rem;color:var(--on-surface-variant);">User Panel + CLI — نقش‌ها: user, moderator, billing</div>
+                                </div>
+                            </div>
+                            <div style="font-family:var(--font-mono);font-size:0.7rem;color:var(--outline);">Client ID: user-panel</div>
+                        </div>
+                        <div class="glass-panel rounded p-3 d-flex align-items-center gap-3">
+                            <span class="material-symbols-outlined" style="color:#fed639;font-size:20px;">electric_bolt</span>
+                            <div>
+                                <div class="fw-semibold" style="font-size:0.875rem;">Circuit Breaker</div>
+                                <div style="font-size:0.8rem;color:var(--on-surface-variant);">پس از N خرابی متوالی، مدار باز می‌شود و جلوی Cascading Failure را می‌گیرد.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ═══════════════ API ENDPOINTS ═══════════════ -->
+    <section class="py-5">
         <div class="container">
             <div class="row mb-5">
-                <div class="col-lg-8">
-                    <h2 class="display-5 fw-bold mb-3">قدرت در دستان شما</h2>
-                    <p class="lead text-muted">هر آنچه برای مقیاس‌پذیری جهانی نیاز دارید در یک پلتفرم واحد.</p>
+                <div class="col-lg-6">
+                    <div class="section-label">REST API</div>
+                    <h2 class="section-title">Endpoints مستند با Swagger</h2>
+                    <p class="section-subtitle">تمام Endpoint ها نسخه‌بندی شده در <code>/api/v1</code>، با OpenAPI 2.0 مستند‌سازی شده‌اند.</p>
+                </div>
+                <div class="col-lg-6 d-flex align-items-end justify-content-lg-end">
+                    <a href="https://api.devmad.ir/swagger/index.html" target="_blank" class="btn btn-primary-custom">
+                        <span class="material-symbols-outlined align-middle me-1" style="font-size:18px;">open_in_new</span>
+                        مشاهده Swagger UI
+                    </a>
                 </div>
             </div>
-            
             <div class="row g-4">
-                <!-- Feature 1: Auto Deploy -->
-                <div class="col-lg-8">
-                    <div class="glass-panel feature-card rounded">
-                        <div class="feature-icon">
-                            <span class="material-symbols-outlined">rocket_launch</span>
-                        </div>
-                        <h3 class="feature-title">استقرار خودکار (Git-based)</h3>
-                        <p class="feature-description">
-                            هر push به مخزن شما به‌طور خودکار یک build، test، و deploy ایمن را آغاز می‌کند—بدون نیاز به پیکربندی CI/CD. استقرار در تولید در عرض چند ثانیه، با rollback آنی در صورت بروز هرگونه مشکل.
-                        </p>
-                        <div class="code-block">
-                            <div class="mb-1"><span class="code-prompt">$</span> git push origin main</div>
-                            <div class="mb-1">→ Building image... ✓</div>
-                            <div class="mb-1">→ Running tests... ✓</div>
-                            <div>→ Deployed to production in 4.2s ✓</div>
-                        </div>
+                <div class="col-lg-6">
+                    <div class="glass-panel rounded p-3">
+                        <div class="mb-3" style="font-size:0.8rem;font-weight:600;color:var(--on-surface-variant);border-bottom:1px solid var(--outline-variant);padding-bottom:0.5rem;">احراز هویت</div>
+                        <div class="endpoint-row"><span class="method-badge method-post">POST</span><span class="endpoint-path">/auth/login</span><span class="endpoint-desc">ورود کاربر (Keycloak)</span></div>
+                        <div class="endpoint-row"><span class="method-badge method-post">POST</span><span class="endpoint-path">/auth/admin/login</span><span class="endpoint-desc">ورود ادمین</span></div>
+                        <div class="endpoint-row"><span class="method-badge method-post">POST</span><span class="endpoint-path">/auth/refresh</span><span class="endpoint-desc">تمدید توکن</span></div>
+                        <div class="mb-3 mt-4" style="font-size:0.8rem;font-weight:600;color:var(--on-surface-variant);border-bottom:1px solid var(--outline-variant);padding-bottom:0.5rem;">کاربران</div>
+                        <div class="endpoint-row"><span class="method-badge method-get">GET</span><span class="endpoint-path">/users/me</span><span class="endpoint-desc">پروفایل خودم</span></div>
+                        <div class="endpoint-row"><span class="method-badge method-put">PUT</span><span class="endpoint-path">/users/me</span><span class="endpoint-desc">ویرایش پروفایل</span></div>
+                        <div class="endpoint-row"><span class="method-badge method-get">GET</span><span class="endpoint-path">/users</span><span class="endpoint-desc">لیست کاربران (admin)</span></div>
+                        <div class="endpoint-row"><span class="method-badge method-delete">DEL</span><span class="endpoint-path">/users/:id</span><span class="endpoint-desc">حذف کاربر (admin)</span></div>
                     </div>
                 </div>
-                
-                <!-- Feature 2: Kubernetes -->
-                <div class="col-lg-4">
-                    <div class="glass-panel feature-card rounded">
-                        <div class="feature-icon">
-                            <span class="material-symbols-outlined">settings_suggest</span>
-                        </div>
-                        <h3 class="feature-title">Kubernetes مدیریت‌شده</h3>
-                        <p class="feature-description">
-                            قدرت کامل K8s بدون پیچیدگی. ما orchestration، scaling، و self-healing را مدیریت می‌کنیم—شما روی کد تمرکز کنید.
-                        </p>
-                    </div>
-                </div>
-                
-                <!-- Feature 3: Monitoring -->
-                <div class="col-lg-4">
-                    <div class="glass-panel feature-card rounded">
-                        <div class="feature-icon">
-                            <span class="material-symbols-outlined">monitoring</span>
-                        </div>
-                        <h3 class="feature-title">مشاهده‌پذیری کامل</h3>
-                        <p class="feature-description">
-                            Metrics، logs، و traces یکپارچه. Prometheus، Grafana، و distributed tracing از ابتدا پیکربندی شده‌اند.
-                        </p>
-                    </div>
-                </div>
-                
-                <!-- Feature 4: Security -->
-                <div class="col-lg-4">
-                    <div class="glass-panel feature-card rounded">
-                        <div class="feature-icon">
-                            <span class="material-symbols-outlined">shield</span>
-                        </div>
-                        <h3 class="feature-title">امنیت سطح‌سازمانی</h3>
-                        <p class="feature-description">
-                            SSO با Keycloak، secrets management، network policies، و compliance scanning به‌صورت پیش‌فرض فعال است.
-                        </p>
-                    </div>
-                </div>
-                
-                <!-- Feature 5: Autoscaling -->
-                <div class="col-lg-4">
-                    <div class="glass-panel feature-card rounded">
-                        <div class="feature-icon">
-                            <span class="material-symbols-outlined">speed</span>
-                        </div>
-                        <h3 class="feature-title">Autoscaling هوشمند</h3>
-                        <p class="feature-description">
-                            به‌طور خودکار بر اساس CPU، memory، یا metrics سفارشی مقیاس‌دهی کنید. Scale-to-zero برای محیط‌های dev/staging.
-                        </p>
-                    </div>
-                </div>
-                
-                <!-- Feature 6: Multi-Region -->
-                <div class="col-lg-8">
-                    <div class="glass-panel feature-card rounded">
-                        <div class="feature-icon">
-                            <span class="material-symbols-outlined">public</span>
-                        </div>
-                        <h3 class="feature-title">استقرار چند منطقه‌ای</h3>
-                        <p class="feature-description">
-                            اپلیکیشن‌های خود را در چندین منطقه جغرافیایی با load balancing خودکار و failover مستقر کنید. تأخیر کم برای کاربران جهانی.
-                        </p>
-                        <div class="row g-3 mt-2">
-                            <div class="col-4">
-                                <div class="text-center p-3 rounded" style="background: rgba(0, 240, 255, 0.05); border: 1px solid rgba(0, 240, 255, 0.1);">
-                                    <span class="material-symbols-outlined text-success d-block mb-2">check_circle</span>
-                                    <small class="text-muted">Tehran</small>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="text-center p-3 rounded" style="background: rgba(0, 240, 255, 0.05); border: 1px solid rgba(0, 240, 255, 0.1);">
-                                    <span class="material-symbols-outlined text-success d-block mb-2">check_circle</span>
-                                    <small class="text-muted">Frankfurt</small>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="text-center p-3 rounded" style="background: rgba(0, 240, 255, 0.05); border: 1px solid rgba(0, 240, 255, 0.1);">
-                                    <span class="material-symbols-outlined text-success d-block mb-2">check_circle</span>
-                                    <small class="text-muted">Singapore</small>
-                                </div>
-                            </div>
-                        </div>
+                <div class="col-lg-6">
+                    <div class="glass-panel rounded p-3">
+                        <div class="mb-3" style="font-size:0.8rem;font-weight:600;color:var(--on-surface-variant);border-bottom:1px solid var(--outline-variant);padding-bottom:0.5rem;">اپلیکیشن‌ها</div>
+                        <div class="endpoint-row"><span class="method-badge method-get">GET</span><span class="endpoint-path">/applications</span><span class="endpoint-desc">لیست اپ‌های من</span></div>
+                        <div class="endpoint-row"><span class="method-badge method-post">POST</span><span class="endpoint-path">/applications</span><span class="endpoint-desc">ایجاد اپلیکیشن</span></div>
+                        <div class="endpoint-row"><span class="method-badge method-put">PUT</span><span class="endpoint-path">/applications/:id</span><span class="endpoint-desc">ویرایش اپ</span></div>
+                        <div class="endpoint-row"><span class="method-badge method-delete">DEL</span><span class="endpoint-path">/applications/:id</span><span class="endpoint-desc">حذف اپ</span></div>
+                        <div class="endpoint-row"><span class="method-badge method-post">POST</span><span class="endpoint-path">/applications/:id/deploy</span><span class="endpoint-desc">استقرار</span></div>
+                        <div class="endpoint-row"><span class="method-badge method-post">POST</span><span class="endpoint-path">/applications/:id/scale</span><span class="endpoint-desc">مقیاس‌دهی</span></div>
+                        <div class="endpoint-row"><span class="method-badge method-get">GET</span><span class="endpoint-path">/applications/:id/logs</span><span class="endpoint-desc">لاگ‌های pod</span></div>
+                        <div class="endpoint-row"><span class="method-badge method-get">GET</span><span class="endpoint-path">/admin/dashboard/stats</span><span class="endpoint-desc">آمار dashboard</span></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="py-5 my-5">
+    <hr class="section-divider">
+
+    <!-- ═══════════════ DEPLOYMENT ═══════════════ -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-5">
+                    <div class="section-label">استقرار</div>
+                    <h2 class="section-title">با یک دستور، همه سرویس‌ها بالا می‌آیند</h2>
+                    <p class="section-subtitle">
+                        Taskfile در ریشه پروژه همه چیز را به یک سرور Remote Sync می‌کند و سرویس‌ها را به ترتیب dependency راه‌اندازی می‌کند. یا می‌توانید هر ماژول را به‌صورت جداگانه با Docker Compose اجرا کنید.
+                    </p>
+                    <div class="mt-4">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <span class="material-symbols-outlined" style="color:var(--primary);">rocket_launch</span>
+                            <div>
+                                <div class="fw-semibold" style="font-size:0.875rem;">استقرار کامل با Taskfile</div>
+                                <div style="font-size:0.8rem;color:var(--on-surface-variant);"><code>task</code> — Sync + Restart همه سرویس‌ها</div>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <span class="material-symbols-outlined" style="color:var(--primary);">view_in_ar</span>
+                            <div>
+                                <div class="fw-semibold" style="font-size:0.875rem;">Docker Compose جداگانه</div>
+                                <div style="font-size:0.8rem;color:var(--on-surface-variant);">هر ماژول Compose مستقل دارد</div>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center gap-3">
+                            <span class="material-symbols-outlined" style="color:var(--primary);">monitoring</span>
+                            <div>
+                                <div class="fw-semibold" style="font-size:0.875rem;">بررسی وضعیت</div>
+                                <div style="font-size:0.8rem;color:var(--on-surface-variant);"><code>task status</code> یا <code>bash status.sh</code></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="code-block" style="font-size:0.775rem;line-height:1.8;">
+                        <div style="color:var(--outline);margin-bottom:0.5rem;"># استقرار کامل با Taskfile</div>
+                        <div class="mb-3"><span class="code-prompt">$</span> task &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:var(--outline);"># sync + restart all</span></div>
+
+                        <div style="color:var(--outline);margin-bottom:0.5rem;"># یا به ترتیب با Docker Compose</div>
+                        <div class="mb-1"><span class="code-prompt">$</span> cd database &amp;&amp; docker compose up -d</div>
+                        <div class="mb-1"><span class="code-prompt">$</span> cd api-server &amp;&amp; docker compose up -d</div>
+                        <div class="mb-1"><span class="code-prompt">$</span> cd admin-assistant &amp;&amp; docker compose up -d</div>
+                        <div class="mb-1"><span class="code-prompt">$</span> cd admin-panel &amp;&amp; docker compose up -d</div>
+                        <div class="mb-3"><span class="code-prompt">$</span> cd user-panel &amp;&amp; docker compose up -d</div>
+
+                        <div style="color:var(--outline);margin-bottom:0.5rem;"># اجرای local برای توسعه</div>
+                        <div class="mb-1"><span class="code-prompt">$</span> cd api-server &amp;&amp; go run cmd/server/main.go</div>
+                        <div class="mb-1"><span class="code-prompt">$</span> cd admin-panel &amp;&amp; npm start &nbsp;<span style="color:var(--outline);"># :3000</span></div>
+                        <div><span class="code-prompt">$</span> cd user-panel &amp;&amp; npm start &nbsp;&nbsp;<span style="color:var(--outline);"># :3001</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ═══════════════ TECH STACK ═══════════════ -->
+    <section class="py-5">
+        <div class="container">
+            <div class="mb-5 text-center">
+                <div class="section-label">فناوری‌ها</div>
+                <h2 class="section-title">Stack فنی PaaS2</h2>
+            </div>
+            <div class="row g-3 justify-content-center">
+                <div class="col-lg-10">
+                    <div class="glass-panel rounded overflow-hidden">
+                        <table class="table table-dark mb-0" style="--bs-table-bg:transparent;--bs-table-striped-bg:rgba(255,255,255,0.02);font-size:0.8375rem;">
+                            <thead>
+                                <tr style="border-color:var(--outline-variant);">
+                                    <th style="color:var(--on-surface-variant);font-weight:600;padding:0.875rem 1.25rem;border-color:var(--outline-variant);">لایه</th>
+                                    <th style="color:var(--on-surface-variant);font-weight:600;padding:0.875rem 1.25rem;border-color:var(--outline-variant);">فناوری</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="border-color:var(--outline-variant);">
+                                    <td style="padding:0.75rem 1.25rem;border-color:var(--outline-variant);color:var(--on-surface-variant);">API Backend</td>
+                                    <td style="padding:0.75rem 1.25rem;border-color:var(--outline-variant);">Go 1.21, Gin, GORM, <code>coreos/go-oidc</code>, Logrus</td>
+                                </tr>
+                                <tr style="border-color:var(--outline-variant);background:rgba(255,255,255,0.02);">
+                                    <td style="padding:0.75rem 1.25rem;border-color:var(--outline-variant);color:var(--on-surface-variant);">AI Agent (Admin Assistant)</td>
+                                    <td style="padding:0.75rem 1.25rem;border-color:var(--outline-variant);">Go 1.23, <code>resty</code>, <code>robfig/cron</code>, Ollama / Gemini / DeepSeek / OpenAI</td>
+                                </tr>
+                                <tr style="border-color:var(--outline-variant);">
+                                    <td style="padding:0.75rem 1.25rem;border-color:var(--outline-variant);color:var(--on-surface-variant);">Frontend (Panels)</td>
+                                    <td style="padding:0.75rem 1.25rem;border-color:var(--outline-variant);">React 18, Material-UI v5, React Router v6, Axios, Keycloak JS</td>
+                                </tr>
+                                <tr style="border-color:var(--outline-variant);background:rgba(255,255,255,0.02);">
+                                    <td style="padding:0.75rem 1.25rem;border-color:var(--outline-variant);color:var(--on-surface-variant);">احراز هویت</td>
+                                    <td style="padding:0.75rem 1.25rem;border-color:var(--outline-variant);">Keycloak (OpenID Connect) — دو Realm</td>
+                                </tr>
+                                <tr style="border-color:var(--outline-variant);">
+                                    <td style="padding:0.75rem 1.25rem;border-color:var(--outline-variant);color:var(--on-surface-variant);">دیتابیس</td>
+                                    <td style="padding:0.75rem 1.25rem;border-color:var(--outline-variant);">PostgreSQL 15 — UUID Primary Keys</td>
+                                </tr>
+                                <tr style="border-color:var(--outline-variant);background:rgba(255,255,255,0.02);">
+                                    <td style="padding:0.75rem 1.25rem;border-color:var(--outline-variant);color:var(--on-surface-variant);">Orchestration</td>
+                                    <td style="padding:0.75rem 1.25rem;border-color:var(--outline-variant);">Kubernetes — <code>k8s.io/client-go</code> v0.28</td>
+                                </tr>
+                                <tr style="border-color:var(--outline-variant);">
+                                    <td style="padding:0.75rem 1.25rem;border-color:var(--outline-variant);color:var(--on-surface-variant);">Containerisation</td>
+                                    <td style="padding:0.75rem 1.25rem;border-color:var(--outline-variant);">Docker, Docker Compose</td>
+                                </tr>
+                                <tr style="border-color:var(--outline-variant);background:rgba(255,255,255,0.02);">
+                                    <td style="padding:0.75rem 1.25rem;border-color:var(--outline-variant);color:var(--on-surface-variant);">Automation</td>
+                                    <td style="padding:0.75rem 1.25rem;border-color:var(--outline-variant);">Taskfile, rsync + SSH</td>
+                                </tr>
+                                <tr style="border-color:var(--outline-variant);">
+                                    <td style="padding:0.75rem 1.25rem;border-color:var(--outline-variant);color:var(--on-surface-variant);">API Docs / Metrics</td>
+                                    <td style="padding:0.75rem 1.25rem;border-color:var(--outline-variant);">Swagger / OpenAPI 2.0 (swaggo), Prometheus-compatible</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ CTA ═══════════════ -->
+    <section class="py-5 my-4">
         <div class="container">
             <div class="glass-panel rounded p-5 text-center">
                 <h2 class="display-6 fw-bold mb-3">آماده برای شروع هستید؟</h2>
-                <p class="lead text-muted mb-4">به هزاران توسعه‌دهنده که اپلیکیشن‌های خود را با PaaS2 مستقر می‌کنند بپیوندید.</p>
+                <p class="lead text-muted mb-4">وارد پنل کاربری شوید یا مستندات API را با Swagger بررسی کنید.</p>
                 <div class="d-flex gap-3 justify-content-center flex-wrap">
-                    <a href="https://app.paas2.ir" class="btn btn-primary-custom btn-lg">شروع رایگان</a>
-                    <a href="https://admin.paas2.ir" class="btn btn-secondary-custom btn-lg">پنل مدیریت</a>
+                    <a href="https://user-panel-p2.devmad.ir" class="btn btn-primary-custom btn-lg">پنل کاربری</a>
+                    <a href="https://api.devmad.ir/swagger/index.html" target="_blank" class="btn btn-secondary-custom btn-lg">Swagger API</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- ═══════════════ FOOTER ═══════════════ -->
     <footer id="support" class="footer-custom">
         <div class="container">
             <div class="row g-4">
                 <div class="col-lg-4">
-                    <h5 class="fw-bold mb-3">PaaS2 Elite</h5>
-                    <p class="text-muted small">پلتفرم ابری نسل بعد برای توسعه‌دهندگان مدرن.</p>
-                </div>
-                <div class="col-lg-2 col-6">
-                    <h6 class="fw-semibold mb-3">محصول</h6>
-                    <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#features" class="footer-link">ویژگی‌ها</a></li>
-                        <li class="mb-2"><a href="https://api.paas2.ir/swagger/index.html" class="footer-link">API</a></li>
-                        <li class="mb-2"><a href="#" class="footer-link">قیمت‌گذاری</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-2 col-6">
-                    <h6 class="fw-semibold mb-3">منابع</h6>
-                    <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#" class="footer-link">مستندات</a></li>
-                        <li class="mb-2"><a href="https://api.paas2.ir/swagger/index.html" class="footer-link">API Docs</a></li>
-                        <li class="mb-2"><a href="#" class="footer-link">راهنماها</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-2 col-6">
-                    <h6 class="fw-semibold mb-3">شرکت</h6>
-                    <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#" class="footer-link">درباره ما</a></li>
-                        <li class="mb-2"><a href="#support" class="footer-link">پشتیبانی</a></li>
-                        <li class="mb-2"><a href="#" class="footer-link">وضعیت سیستم</a></li>
-                    </ul>
+                    <h5 class="fw-bold mb-2" style="color:var(--primary);">PaaS2_</h5>
+                    <p class="text-muted small mb-3">پلتفرم خودمیزبان برای استقرار و مدیریت اپلیکیشن‌های کانتینری روی Kubernetes.</p>
+                    <div class="d-flex flex-wrap gap-1">
+                        <span class="tech-tag">Go</span>
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Kubernetes</span>
+                        <span class="tech-tag">Keycloak</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                    </div>
                 </div>
                 <div class="col-lg-2 col-6">
                     <h6 class="fw-semibold mb-3">پنل‌ها</h6>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="https://app.paas2.ir" class="footer-link">پنل کاربری</a></li>
-                        <li class="mb-2"><a href="https://admin.paas2.ir" class="footer-link">پنل مدیریت</a></li>
-                        <li class="mb-2"><a href="https://auth.paas2.ir" class="footer-link">احراز هویت</a></li>
+                        <li class="mb-2"><a href="https://user-panel-p2.devmad.ir" class="footer-link">پنل کاربری</a></li>
+                        <li class="mb-2"><a href="https://admin-panel-p2.devmad.ir/" class="footer-link">پنل مدیریت</a></li>
+                        <li class="mb-2"><a href="https://login.devmad.ir" class="footer-link">احراز هویت (Keycloak)</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-6">
+                    <h6 class="fw-semibold mb-3">توسعه</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="https://api.devmad.ir/swagger/index.html" class="footer-link">Swagger API</a></li>
+                        <li class="mb-2"><a href="https://docs.paas2.ir" class="footer-link">مستندات</a></li>
+                        <li class="mb-2"><a href="#cli" class="footer-link">CLI</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-6">
+                    <h6 class="fw-semibold mb-3">ماژول‌ها</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#modules" class="footer-link">API Server</a></li>
+                        <li class="mb-2"><a href="#modules" class="footer-link">Admin Assistant</a></li>
+                        <li class="mb-2"><a href="#modules" class="footer-link">User Assistant</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-6">
+                    <h6 class="fw-semibold mb-3">سیستم</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#architecture" class="footer-link">معماری</a></li>
+                        <li class="mb-2"><a href="#" class="footer-link">وضعیت سرویس‌ها</a></li>
+                        <li class="mb-2"><a href="#support" class="footer-link">پشتیبانی</a></li>
                     </ul>
                 </div>
             </div>
             <hr class="my-4 border-secondary opacity-25">
             <div class="row">
                 <div class="col-md-6 text-center text-md-start">
-                    <p class="text-muted small mb-0">&copy; 2026 PaaS2 Elite. All rights reserved.</p>
+                    <p class="text-muted small mb-0">&copy; 2026 PaaS2. All rights reserved.</p>
                 </div>
                 <div class="col-md-6 text-center text-md-end">
                     <a href="#" class="footer-link me-3">حریم خصوصی</a>
