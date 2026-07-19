@@ -1,2 +1,33 @@
+# Environment files — may contain secrets
+.env
+.env.*
+!.env.example
 
+# Temporary folders
 tmp/
+temp/
+
+# Logs
+*.log
+logs/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Build / tooling
+node_modules/
+dist/
+build/
