@@ -2,7 +2,7 @@ name: p2home
 
 services:
   home:
-    image: nginx:alpine
+    image: nginx:1.27-alpine
     container_name: paas2_home
     env_file:
       - .env
