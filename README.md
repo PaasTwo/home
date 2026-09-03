@@ -1,123 +1,42 @@
-# PaaS2 Home Page
+# PaaS2 Home
 
-Static landing page for the PaaS2 platform, served at the root domain.
+Public bilingual landing site for PaaS2, built with Hugo and the Obsidian Flux theme (English LTR, Farsi RTL).
 
-## Overview
+Farsi is the default language at `/`. English lives at `/en/`.
 
-This is the public-facing home page that showcases PaaS2's features and provides navigation to all platform services. Built with Bootstrap 5 and follows the Lumina Velocity design system for a modern, professional developer experience.
+## Design
 
-## Design System
+Visual system from `newhome_stitch/` (Obsidian Flux): void background, purple-to-cyan accents, glass cards, Geist/Inter for English and Vazirmatn for Farsi.
 
-- **Theme**: Dark mode with "Elite Developer" aesthetic
-- **Colors**: Obsidian Navy background with Electric Cyan accents
-- **Typography**: Vazirmatn for UI, JetBrains Mono for code
-- **Style**: Minimalist Glassmorphism with subtle depth layering
-- **Framework**: Bootstrap 5 RTL for responsive layout
+## Local development
 
-## Features
+```bash
+npm install
+npm run build:css
+hugo server
+```
 
-- **Hero Section**: Eye-catching introduction with animated elements
-- **Dashboard Preview**: Visual showcase of the platform interface
-- **Stats Section**: Key platform metrics and uptime guarantees
-- **Feature Grid**: Bento-style layout highlighting core capabilities:
-  - Git-based auto-deployment
-  - Managed Kubernetes orchestration
-  - Full observability (Prometheus, Grafana)
-  - Enterprise security (Keycloak SSO)
-  - Intelligent autoscaling
-  - Multi-region deployment
-- **CTA Section**: Clear call-to-action for user onboarding
-- **Footer**: Navigation to all platform services and documentation
+Or `task serve`. Open http://localhost:1313 — Farsi homepage, English at `/en/`.
 
-## Routing
+## Build
 
-The home page is routed through Traefik at the root domain:
+```bash
+npm install
+task build
+```
+
+Output is `public/`.
+
+## Deploy
+
+Nginx serves the Hugo output on port 6180, routed by Traefik:
 
 ```yaml
-Host(`${DOMAIN}`)  →  home:80  →  /usr/share/nginx/html/index.html
+Host(`p2.devmad.ir`)  →  home:6180
 ```
-
-All subdomains route to their respective services:
-- `api.${DOMAIN}` → API Server
-- `app.${DOMAIN}` → User Panel
-- `admin.${DOMAIN}` → Admin Panel
-- `auth.${DOMAIN}` → Keycloak
-- `db.${DOMAIN}` → Adminer (PostgreSQL UI)
-- `redis.${DOMAIN}` → Redis Commander
-- `traefik.${DOMAIN}` → Traefik Dashboard
-
-## Files
-
-- **index.html** - Main landing page with embedded styles
-- **screen.png** - Dashboard screenshot (optional, fallback icon if missing)
-- **DESIGN.md** - Complete design system specification
-- **code.html** - Original Tailwind design reference
-- **docker-compose.yml** - Nginx container with Traefik labels
-
-## Deployment
-
-### Local Development
 
 ```bash
-# Start the home page (requires paas2-network)
-cd home
-docker compose up -d
-
-# Access at https://localhost (via Traefik)
+docker compose up -d --build
 ```
 
-### Production Deployment
-
-The home page is automatically included in the main deployment:
-
-```bash
-# Via Taskfile (includes all services)
-task up
-
-# Or manually
-cd home && docker compose up -d
-```
-
-## Configuration
-
-The service uses the root `.env` file for domain configuration:
-
-```bash
-DOMAIN=example.com
-```
-
-The HTML file uses `${DOMAIN}` placeholders which are substituted at container startup using `envsubst`. This allows dynamic domain configuration without rebuilding the image.
-
-The Traefik labels automatically route `https://${DOMAIN}` to this service.
-
-## Customization
-
-To customize the home page:
-
-1. **Edit index.html** - Update content, sections, or structure
-2. **Modify inline styles** - Adjust CSS custom properties in `<style>` block
-3. **Replace screenshot** - Add `screen.png` for the dashboard preview
-4. **Update links** - Ensure all hrefs use correct subdomain patterns
-
-## Dependencies
-
-- **nginx:alpine** - Lightweight web server (< 25MB)
-- **Traefik** - Must be running for HTTPS and routing
-- **paas2-network** - Shared Docker network for service communication
-
-## Health Check
-
-The container includes a health check that verifies nginx is responding:
-
-```bash
-docker compose ps
-# Should show "healthy" status
-```
-
-## Notes
-
-- All external links use `${DOMAIN}` variable substitution
-- The page is fully responsive (mobile, tablet, desktop)
-- RTL support for Persian/Farsi content
-- No build step required - pure static HTML
-- All assets are CDN-hosted (Bootstrap, Google Fonts, Material Icons)
+The container is included in the root `task up` via the `home` service.

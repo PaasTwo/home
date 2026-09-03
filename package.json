@@ -1,0 +1,11 @@
+{
+  "name": "paas2-home",
+  "private": true,
+  "scripts": {
+    "build:css": "tailwindcss -i ./assets/css/input.css -o ./themes/obsidian-flux/assets/css/main.css --minify",
+    "watch:css": "tailwindcss -i ./assets/css/input.css -o ./themes/obsidian-flux/assets/css/main.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}

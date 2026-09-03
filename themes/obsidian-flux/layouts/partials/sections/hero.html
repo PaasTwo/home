@@ -1,0 +1,44 @@
+{{ $p := .Params }}
+<section class="relative overflow-hidden pt-2xl pb-xl px-gutter">
+  <div class="absolute top-0 start-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-primary/10 blur-[120px] rounded-full -z-10"></div>
+  <div class="max-w-container-max mx-auto grid lg:grid-cols-2 gap-xl items-center">
+    <div class="flex flex-col gap-lg">
+      <h1 class="font-display-hero text-display-hero-mobile md:text-display-hero text-on-surface max-w-[14ch]">
+        {{ $p.hero_title | default .Title }}
+      </h1>
+      <p class="font-body-lg text-body-lg text-on-surface-variant max-w-[45ch]">
+        {{ $p.hero_lead | default .Description }}
+      </p>
+      <div class="flex flex-wrap gap-md mt-md">
+        <a href="{{ .Site.Params.userPanel }}" class="bg-gradient-to-r from-primary to-secondary text-on-primary font-label-caps text-label-caps px-xl py-md rounded-sm glow-primary transition-all">
+          {{ i18n "cta_start" }}
+        </a>
+        {{ with .Site.GetPage "/docs" }}
+        <a href="{{ .RelPermalink }}" class="border border-outline-variant text-on-surface font-label-caps text-label-caps px-xl py-md rounded-sm hover:bg-surface-container-highest/30 transition-all">
+          {{ i18n "cta_docs" }}
+        </a>
+        {{ end }}
+      </div>
+    </div>
+    <div class="relative group">
+      <div class="absolute inset-0 bg-secondary/20 blur-[80px] rounded-full group-hover:bg-secondary/30 transition-all duration-500"></div>
+      <div class="relative z-10 terminal-mock shadow-2xl" dir="ltr">
+        <div class="terminal-mock__header">
+          <span class="terminal-mock__dot bg-error"></span>
+          <span class="terminal-mock__dot bg-tertiary"></span>
+          <span class="terminal-mock__dot bg-secondary"></span>
+          <span class="ms-auto text-on-surface-variant text-code-sm">paas2 deploy</span>
+        </div>
+        <div class="terminal-mock__body">
+          <div><span class="muted">$</span> paas2 apps create my-api</div>
+          <div class="ok">✓ Application created</div>
+          <div><span class="muted">$</span> git push paas2 main</div>
+          <div class="muted">Building image…</div>
+          <div class="ok">✓ Deployed to production</div>
+          <div class="muted">URL: https://my-api.{{ .Site.Params.brand | lower }}.ir</div>
+          <div class="ok">✓ AI health check passed</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

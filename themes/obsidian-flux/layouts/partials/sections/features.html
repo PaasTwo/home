@@ -1,0 +1,18 @@
+{{ $p := .Params }}
+<section id="features" class="py-2xl px-gutter max-w-container-max mx-auto scroll-mt-20">
+  <div class="text-center mb-xl">
+    <h2 class="font-headline-lg text-headline-lg text-on-surface mb-sm">{{ $p.features_title }}</h2>
+    <p class="text-on-surface-variant font-body-md max-w-[60ch] mx-auto">{{ $p.features_lead }}</p>
+  </div>
+  <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-lg">
+    {{ range $i, $f := $p.features }}
+    {{ $colors := slice "text-primary" "text-secondary" "text-tertiary" "text-primary" }}
+    {{ $hovers := slice "hover:border-primary/50" "hover:border-secondary/50" "hover:border-tertiary/50" "hover:border-primary/50" }}
+    <div class="glass-card p-lg rounded-xl {{ index $hovers (mod $i 4) }} transition-all duration-300">
+      <span class="material-symbols-outlined {{ index $colors (mod $i 4) }} text-headline-md mb-md" aria-hidden="true">{{ $f.icon }}</span>
+      <h3 class="font-headline-md text-headline-md text-on-surface mb-xs">{{ $f.title }}</h3>
+      <p class="text-on-surface-variant text-body-sm">{{ $f.description }}</p>
+    </div>
+    {{ end }}
+  </div>
+</section>

@@ -1,0 +1,98 @@
+[nav_features]
+other = "قابلیت‌ها"
+
+[nav_ai]
+other = "هوش مصنوعی"
+
+[nav_docs]
+other = "مستندات"
+
+[nav_pricing]
+other = "قیمت‌گذاری"
+
+[nav_about]
+other = "درباره ما"
+
+[nav_blog]
+other = "بلاگ"
+
+[nav_github]
+other = "گیت‌هاب"
+
+[cta_deploy]
+other = "شروع استقرار"
+
+[cta_start]
+other = "شروع کنید"
+
+[cta_docs]
+other = "مشاهده مستندات"
+
+[cta_get_started]
+other = "شروع کنید"
+
+[read_more]
+other = "ادامه مطلب"
+
+[back_home]
+other = "بازگشت به خانه"
+
+[all_posts]
+other = "همه نوشته‌ها"
+
+[posted_on]
+other = "منتشر شده در"
+
+[by]
+other = "توسط"
+
+[docs_toc]
+other = "فهرست"
+
+[pricing_choose]
+other = "انتخاب پلن"
+
+[pricing_popular]
+other = "محبوب"
+
+[footer_product]
+other = "محصول"
+
+[footer_company]
+other = "شرکت"
+
+[footer_resources]
+other = "منابع"
+
+[footer_social]
+other = "شبکه‌های اجتماعی"
+
+[footer_privacy]
+other = "حریم خصوصی"
+
+[footer_terms]
+other = "شرایط استفاده"
+
+[footer_tagline]
+other = "آینده زیرساخت ابری، خودمختار است. توانمندسازی توسعه‌دهندگان با عملیات مبتنی بر هوش مصنوعی."
+
+[footer_copyright]
+other = "© {{ .Year }} PaaS2 — پلتفرم ایرانی. همه حقوق محفوظ است."
+
+[footer_credit]
+other = "طراحی و توسعه توسط"
+
+[lang_switch]
+other = "زبان"
+
+[menu_open]
+other = "باز کردن منو"
+
+[menu_close]
+other = "بستن منو"
+
+[blog_empty]
+other = "هنوز نوشته‌ای منتشر نشده است."
+
+[docs_empty]
+other = "هنوز مستنداتی موجود نیست."

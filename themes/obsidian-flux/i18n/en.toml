@@ -1,0 +1,98 @@
+[nav_features]
+other = "Features"
+
+[nav_ai]
+other = "AI"
+
+[nav_docs]
+other = "Documentation"
+
+[nav_pricing]
+other = "Pricing"
+
+[nav_about]
+other = "About"
+
+[nav_blog]
+other = "Blog"
+
+[nav_github]
+other = "GitHub"
+
+[cta_deploy]
+other = "Deploy Now"
+
+[cta_start]
+other = "Start Deploying"
+
+[cta_docs]
+other = "Documentation"
+
+[cta_get_started]
+other = "Get Started"
+
+[read_more]
+other = "Read more"
+
+[back_home]
+other = "Back to home"
+
+[all_posts]
+other = "All posts"
+
+[posted_on]
+other = "Posted on"
+
+[by]
+other = "by"
+
+[docs_toc]
+other = "Contents"
+
+[pricing_choose]
+other = "Choose plan"
+
+[pricing_popular]
+other = "Popular"
+
+[footer_product]
+other = "Product"
+
+[footer_company]
+other = "Company"
+
+[footer_resources]
+other = "Resources"
+
+[footer_social]
+other = "Social"
+
+[footer_privacy]
+other = "Privacy"
+
+[footer_terms]
+other = "Terms"
+
+[footer_tagline]
+other = "The future of cloud infrastructure is autonomous. Empowering developers with AI-driven operations."
+
+[footer_copyright]
+other = "© {{ .Year }} PaaS2 Iranian PaaS. All rights reserved. Built for developers."
+
+[footer_credit]
+other = "Designed and developed by"
+
+[lang_switch]
+other = "Language"
+
+[menu_open]
+other = "Open menu"
+
+[menu_close]
+other = "Close menu"
+
+[blog_empty]
+other = "No posts published yet."
+
+[docs_empty]
+other = "No documentation yet."

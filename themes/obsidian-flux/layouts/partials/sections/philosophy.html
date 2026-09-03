@@ -1,0 +1,26 @@
+{{ $p := .Params }}
+<section class="py-2xl px-gutter max-w-container-max mx-auto grid md:grid-cols-2 gap-2xl items-center">
+  <div>
+    <h2 class="font-headline-lg text-headline-lg text-on-surface mb-lg">{{ $p.philosophy_title }}</h2>
+    <div class="grid gap-lg">
+      {{ range $p.philosophy_items }}
+      <div class="flex items-center gap-md">
+        <span class="material-symbols-outlined text-secondary" aria-hidden="true">{{ .icon }}</span>
+        <span class="font-headline-md text-headline-md text-on-surface">{{ .text }}</span>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+  <div class="glass-card p-xl rounded-2xl border-s-4 border-s-primary">
+    <h3 class="font-headline-md text-headline-md text-on-surface mb-md">"{{ $p.quote_text }}"</h3>
+    <div class="flex items-center gap-md">
+      <div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center text-primary font-semibold">
+        {{ substr $p.quote_author 0 1 }}
+      </div>
+      <div>
+        <p class="text-on-surface font-semibold">{{ $p.quote_author }}</p>
+        <p class="text-on-surface-variant text-body-sm">{{ $p.quote_role }}</p>
+      </div>
+    </div>
+  </div>
+</section>

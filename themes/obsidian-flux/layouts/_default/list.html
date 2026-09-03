@@ -1,0 +1,46 @@
+{{ define "main" }}
+<section class="py-2xl px-gutter max-w-container-max mx-auto">
+  <div class="mb-xl">
+    <h1 class="font-headline-lg text-headline-lg text-on-surface mb-sm">{{ .Title }}</h1>
+    {{ with .Description }}
+    <p class="text-on-surface-variant font-body-md max-w-[60ch]">{{ . }}</p>
+    {{ end }}
+  </div>
+
+  {{ if .Content }}
+  <div class="prose-page mb-xl max-w-3xl">
+    {{ .Content }}
+  </div>
+  {{ end }}
+
+  {{ $pages := .Pages }}
+  {{ if eq .Section "blog" }}
+    {{ $pages = .Pages.ByDate.Reverse }}
+  {{ end }}
+
+  {{ if $pages }}
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-lg">
+    {{ range $pages }}
+    <a href="{{ .RelPermalink }}" class="glass-card p-lg rounded-xl hover:border-primary/50 transition-all duration-300 block group">
+      {{ with .Params.icon }}
+      <span class="material-symbols-outlined text-primary text-headline-md mb-md" aria-hidden="true">{{ . }}</span>
+      {{ end }}
+      <h2 class="font-headline-md text-headline-md text-on-surface mb-xs group-hover:text-primary transition-colors">{{ .Title }}</h2>
+      {{ with .Description }}
+      <p class="text-on-surface-variant text-body-sm mb-md">{{ . }}</p>
+      {{ end }}
+      {{ if eq $.Section "blog" }}
+      <p class="text-on-surface-variant text-body-sm opacity-70">{{ .Date.Format "2006-01-02" }}</p>
+      {{ else }}
+      <span class="text-primary text-body-sm font-semibold inline-flex items-center gap-xs">{{ i18n "read_more" }} <span class="material-symbols-outlined text-[16px] read-more-arrow" aria-hidden="true">arrow_forward</span></span>
+      {{ end }}
+    </a>
+    {{ end }}
+  </div>
+  {{ else }}
+  <p class="text-on-surface-variant">
+    {{ if eq .Section "blog" }}{{ i18n "blog_empty" }}{{ else }}{{ i18n "docs_empty" }}{{ end }}
+  </p>
+  {{ end }}
+</section>
+{{ end }}

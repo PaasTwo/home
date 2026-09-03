@@ -1,0 +1,46 @@
+{{ define "main" }}
+<section class="py-2xl px-gutter max-w-container-max mx-auto">
+  <div class="text-center mb-xl">
+    <h1 class="font-headline-lg text-headline-lg text-on-surface mb-sm">{{ .Title }}</h1>
+    {{ with .Description }}
+    <p class="text-on-surface-variant font-body-md max-w-[60ch] mx-auto">{{ . }}</p>
+    {{ end }}
+  </div>
+
+  {{ with .Content }}
+  <div class="prose-page mb-xl max-w-3xl mx-auto text-center">
+    {{ . }}
+  </div>
+  {{ end }}
+
+  {{ $tiers := .Params.tiers }}
+  {{ if $tiers }}
+  <div class="grid md:grid-cols-3 gap-lg items-stretch">
+    {{ range $tiers }}
+    <div class="glass-card p-xl rounded-xl flex flex-col {{ if .popular }}gradient-border relative{{ end }}">
+      {{ if .popular }}
+      <span class="absolute -top-3 start-1/2 -translate-x-1/2 bg-primary text-on-primary px-md py-xs rounded-sm font-label-caps text-label-caps">{{ i18n "pricing_popular" }}</span>
+      {{ end }}
+      <h2 class="font-headline-md text-headline-md text-on-surface mb-xs">{{ .name }}</h2>
+      <p class="text-on-surface-variant text-body-sm mb-lg">{{ .description }}</p>
+      <div class="mb-lg">
+        <span class="font-display-hero-mobile text-display-hero-mobile text-on-surface">{{ .price }}</span>
+        {{ with .period }}<span class="text-on-surface-variant text-body-sm">{{ . }}</span>{{ end }}
+      </div>
+      <ul class="space-y-md mb-xl flex-1">
+        {{ range .features }}
+        <li class="flex items-start gap-sm text-body-sm text-on-surface-variant">
+          <span class="material-symbols-outlined text-tertiary text-[18px] mt-0.5" aria-hidden="true">check_circle</span>
+          <span>{{ . }}</span>
+        </li>
+        {{ end }}
+      </ul>
+      <a href="{{ site.Params.userPanel }}" class="text-center {{ if .popular }}bg-gradient-to-r from-primary to-secondary text-on-primary{{ else }}border border-outline-variant text-on-surface hover:bg-surface-container-highest/30{{ end }} font-label-caps text-label-caps px-xl py-md rounded-sm glow-primary transition-all">
+        {{ i18n "pricing_choose" }}
+      </a>
+    </div>
+    {{ end }}
+  </div>
+  {{ end }}
+</section>
+{{ end }}

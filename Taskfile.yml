@@ -6,11 +6,28 @@ vars:
   PROJECT: home
 
 tasks:
+  css:
+    desc: "Build Tailwind CSS into the theme"
+    cmds:
+      - npm run build:css
+
+  build:
+    desc: "Build CSS and the Hugo site"
+    cmds:
+      - npm run build:css
+      - hugo --gc --minify
+
+  serve:
+    desc: "Watch CSS and run the Hugo development server"
+    cmds:
+      - npm run build:css
+      - hugo server --bind 0.0.0.0 --buildDrafts
+
   sync:
     desc: "Sync this project to the remote server"
     cmds:
       - ssh {{.SERVER}} "mkdir -p {{.DEP_PATH}}/{{.PROJECT}}"
-      - rsync -avz --delete --exclude .git --exclude node_modules --exclude vendor --exclude docker-exports ./ {{.SERVER}}:{{.DEP_PATH}}/{{.PROJECT}}/
+      - rsync -avz --delete --exclude .git --exclude node_modules --exclude public --exclude resources --exclude newhome_stitch ./ {{.SERVER}}:{{.DEP_PATH}}/{{.PROJECT}}/
 
   remote:build:
     desc: "Sync this project and build it on the remote server"

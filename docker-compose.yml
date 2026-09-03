@@ -2,16 +2,11 @@ name: p2home
 
 services:
   home:
-    image: nginx:1.27-alpine
+    build: .
+    image: paas2-home:latest
     container_name: paas2_home
-    env_file:
-      - .env
     ports:
       - 6180:6180
-    volumes:
-      - ./index.html:/usr/share/nginx/html/index.html:ro
-      - ./screen.png:/usr/share/nginx/html/screen.png:ro
-      - ./nginx:/etc/nginx:ro
     networks:
       - paas2-network
       - devmad
@@ -22,9 +17,8 @@ services:
       - "traefik.http.routers.p2home.entrypoints=websecure"
       - "traefik.http.routers.p2home.tls=true"
       - "traefik.http.services.p2home.loadbalancer.server.port=6180"
-
     healthcheck:
-      test: ["CMD", "curl", "-sSL", "http://localhost:6180/"]
+      test: ["CMD", "wget", "-qO-", "http://localhost:6180/"]
       interval: 30s
       timeout: 10s
       retries: 3

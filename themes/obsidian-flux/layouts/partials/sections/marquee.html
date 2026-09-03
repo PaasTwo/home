@@ -1,0 +1,19 @@
+{{ $items := .Params.marquee | default (slice "KUBERNETES" "DOCKER" "GOLANG" "AI ENGINE" "GITOPS" "PROMETHEUS") }}
+{{ $icons := dict "KUBERNETES" "hub" "DOCKER" "dock" "GOLANG" "terminal" "AI ENGINE" "psychology" "GITOPS" "commit" "PROMETHEUS" "monitoring" }}
+{{ $colors := slice "text-primary" "text-secondary" "text-tertiary" }}
+<section class="py-xl border-y border-outline-variant/20 bg-surface-container-lowest">
+  <div class="scrolling-banner overflow-hidden whitespace-nowrap">
+    <div class="flex gap-2xl animate-marquee items-center opacity-50 hover:opacity-100 transition-opacity">
+      {{ range seq 2 }}
+        {{ range $i, $item := $items }}
+        {{ $icon := index $icons $item | default "memory" }}
+        {{ $color := index $colors (mod $i 3) }}
+        <div class="flex items-center gap-sm font-label-caps text-label-caps text-on-surface-variant">
+          <span class="material-symbols-outlined {{ $color }}" aria-hidden="true">{{ $icon }}</span>
+          {{ $item }}
+        </div>
+        {{ end }}
+      {{ end }}
+    </div>
+  </div>
+</section>
