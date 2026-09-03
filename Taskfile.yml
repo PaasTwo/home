@@ -1,9 +1,9 @@
-version: '3'
+version: "3"
 
 vars:
   SERVER: paas2
-  DEP_PATH: /opt/src/paas2
-  PROJECT: home
+  DEP_PATH: /opt/src/
+  PROJECT: paas2_home
 
 tasks:
   css:
