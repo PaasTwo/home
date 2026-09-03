@@ -1,0 +1,15 @@
+{{ $translations := .AllTranslations }}
+{{ if gt (len $translations) 1 }}
+<div class="flex items-center gap-xs" role="group" aria-label="{{ i18n "lang_switch" }}">
+  {{ range $translations }}
+  <a
+    href="{{ .RelPermalink }}"
+    hreflang="{{ .Language.Lang }}"
+    class="px-sm py-xs rounded-sm text-body-sm font-semibold transition-colors {{ if eq .Language.Lang $.Language.Lang }}bg-surface-container-highest text-primary border border-primary/40{{ else }}text-on-surface-variant hover:text-on-surface border border-transparent{{ end }}"
+    {{ if eq .Language.Lang $.Language.Lang }}aria-current="true"{{ end }}
+  >
+    {{ if eq .Language.Lang "fa" }}فا{{ else }}EN{{ end }}
+  </a>
+  {{ end }}
+</div>
+{{ end }}

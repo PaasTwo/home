@@ -1,0 +1,71 @@
+{{ $home := .Site.Home.RelPermalink }}
+{{ $isHome := .IsHome }}
+<header class="fixed top-0 w-full z-50 bg-background/70 backdrop-blur-xl border-b border-outline-variant/30">
+  <div class="flex justify-between items-center h-16 px-gutter max-w-container-max mx-auto">
+    <a href="{{ $home }}" class="flex items-center gap-sm">
+      <img class="h-8 w-auto object-contain" src="{{ "images/logo.png" | relURL }}" alt="{{ .Site.Params.brand }}" width="160" height="40"/>
+    </a>
+
+    <nav class="hidden md:flex items-center gap-lg" aria-label="Main">
+      {{ if $isHome }}
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors font-body-md text-body-md" href="#features">{{ i18n "nav_features" }}</a>
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors font-body-md text-body-md" href="#ai">{{ i18n "nav_ai" }}</a>
+      {{ else }}
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors font-body-md text-body-md" href="{{ $home }}#features">{{ i18n "nav_features" }}</a>
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors font-body-md text-body-md" href="{{ $home }}#ai">{{ i18n "nav_ai" }}</a>
+      {{ end }}
+      {{ with .Site.GetPage "/docs" }}
+      <a class="{{ if hasPrefix $.RelPermalink .RelPermalink }}text-primary font-semibold border-b-2 border-primary pb-1{{ else }}text-on-surface-variant hover:text-on-surface{{ end }} transition-colors font-body-md text-body-md" href="{{ .RelPermalink }}">{{ i18n "nav_docs" }}</a>
+      {{ end }}
+      {{ with .Site.GetPage "/pricing" }}
+      <a class="{{ if hasPrefix $.RelPermalink .RelPermalink }}text-primary font-semibold border-b-2 border-primary pb-1{{ else }}text-on-surface-variant hover:text-on-surface{{ end }} transition-colors font-body-md text-body-md" href="{{ .RelPermalink }}">{{ i18n "nav_pricing" }}</a>
+      {{ end }}
+      {{ with .Site.GetPage "/about" }}
+      <a class="{{ if hasPrefix $.RelPermalink .RelPermalink }}text-primary font-semibold border-b-2 border-primary pb-1{{ else }}text-on-surface-variant hover:text-on-surface{{ end }} transition-colors font-body-md text-body-md" href="{{ .RelPermalink }}">{{ i18n "nav_about" }}</a>
+      {{ end }}
+      {{ with .Site.GetPage "/blog" }}
+      <a class="{{ if hasPrefix $.RelPermalink .RelPermalink }}text-primary font-semibold border-b-2 border-primary pb-1{{ else }}text-on-surface-variant hover:text-on-surface{{ end }} transition-colors font-body-md text-body-md" href="{{ .RelPermalink }}">{{ i18n "nav_blog" }}</a>
+      {{ end }}
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors font-body-md text-body-md" href="{{ .Site.Params.github }}" target="_blank" rel="noopener">{{ i18n "nav_github" }}</a>
+    </nav>
+
+    <div class="flex items-center gap-md">
+      {{ partial "lang-switcher.html" . }}
+      <a href="{{ .Site.Params.userPanel }}" class="hidden sm:inline-flex active:scale-95 transition-transform bg-primary text-on-primary px-lg py-sm rounded-sm font-label-caps text-label-caps hover:bg-primary-container transition-all duration-200">
+        {{ i18n "cta_deploy" }}
+      </a>
+      <button type="button" id="mobile-menu-btn" class="md:hidden text-on-surface p-sm rounded-sm hover:bg-surface-container-highest/30" aria-expanded="false" aria-controls="mobile-menu" aria-label="{{ i18n "menu_open" }}">
+        <svg id="menu-icon-open" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg id="menu-icon-close" class="w-6 h-6 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="hidden md:hidden border-t border-outline-variant/30 bg-background/95 backdrop-blur-xl">
+    <nav class="flex flex-col gap-sm px-gutter py-lg" aria-label="Mobile">
+      {{ if $isHome }}
+      <a class="text-on-surface-variant hover:text-on-surface py-sm" href="#features" data-close-menu>{{ i18n "nav_features" }}</a>
+      <a class="text-on-surface-variant hover:text-on-surface py-sm" href="#ai" data-close-menu>{{ i18n "nav_ai" }}</a>
+      {{ else }}
+      <a class="text-on-surface-variant hover:text-on-surface py-sm" href="{{ $home }}#features">{{ i18n "nav_features" }}</a>
+      <a class="text-on-surface-variant hover:text-on-surface py-sm" href="{{ $home }}#ai">{{ i18n "nav_ai" }}</a>
+      {{ end }}
+      {{ with .Site.GetPage "/docs" }}
+      <a class="text-on-surface-variant hover:text-on-surface py-sm" href="{{ .RelPermalink }}">{{ i18n "nav_docs" }}</a>
+      {{ end }}
+      {{ with .Site.GetPage "/pricing" }}
+      <a class="text-on-surface-variant hover:text-on-surface py-sm" href="{{ .RelPermalink }}">{{ i18n "nav_pricing" }}</a>
+      {{ end }}
+      {{ with .Site.GetPage "/about" }}
+      <a class="text-on-surface-variant hover:text-on-surface py-sm" href="{{ .RelPermalink }}">{{ i18n "nav_about" }}</a>
+      {{ end }}
+      {{ with .Site.GetPage "/blog" }}
+      <a class="text-on-surface-variant hover:text-on-surface py-sm" href="{{ .RelPermalink }}">{{ i18n "nav_blog" }}</a>
+      {{ end }}
+      <a class="text-on-surface-variant hover:text-on-surface py-sm" href="{{ .Site.Params.github }}" target="_blank" rel="noopener">{{ i18n "nav_github" }}</a>
+      <a href="{{ .Site.Params.userPanel }}" class="mt-sm text-center bg-primary text-on-primary px-lg py-md rounded-sm font-label-caps text-label-caps">
+        {{ i18n "cta_deploy" }}
+      </a>
+    </nav>
+  </div>
+</header>

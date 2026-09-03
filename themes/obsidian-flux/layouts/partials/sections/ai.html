@@ -1,0 +1,43 @@
+{{ $p := .Params }}
+<section id="ai" class="py-2xl bg-surface-container-low/50 relative scroll-mt-20">
+  <div class="max-w-container-max mx-auto px-gutter grid lg:grid-cols-2 gap-2xl items-center">
+    <div class="order-2 lg:order-1">
+      <div class="p-base bg-primary/20 inline-block rounded-sm mb-md">
+        <span class="px-md py-xs font-label-caps text-label-caps text-primary tracking-widest">{{ $p.ai_badge }}</span>
+      </div>
+      <h2 class="font-display-hero-mobile text-display-hero-mobile text-on-surface mb-lg">{{ $p.ai_title }}</h2>
+      <ul class="space-y-lg">
+        {{ range $p.ai_items }}
+        <li class="flex items-start gap-md">
+          <span class="material-symbols-outlined text-tertiary mt-1" aria-hidden="true">check_circle</span>
+          <div>
+            <h4 class="font-headline-md text-headline-md text-on-surface">{{ .title }}</h4>
+            <p class="text-on-surface-variant text-body-sm">{{ .description }}</p>
+          </div>
+        </li>
+        {{ end }}
+      </ul>
+    </div>
+    <div class="order-1 lg:order-2">
+      <div class="screen-mock shadow-[0_0_50px_rgba(221,183,255,0.1)]">
+        <div class="flex items-center justify-between mb-lg">
+          <span class="font-label-caps text-label-caps text-primary">{{ $p.ai_panel_title | default "AI Ops" }}</span>
+          <span class="flex items-center gap-xs text-tertiary text-body-sm"><span class="w-2 h-2 rounded-full bg-tertiary"></span> Live</span>
+        </div>
+        <div class="space-y-md">
+          {{ range $p.ai_metrics }}
+          <div class="bg-surface-container-lowest/80 border border-outline-variant/30 rounded-lg p-md">
+            <div class="flex justify-between text-body-sm mb-sm">
+              <span class="text-on-surface">{{ .label }}</span>
+              <span class="text-secondary">{{ .value }}</span>
+            </div>
+            <div class="h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+              <div class="h-full bg-gradient-to-r from-primary to-secondary rounded-full" style="width: {{ .pct }}%"></div>
+            </div>
+          </div>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,20 @@
+{{ define "main" }}
+<article class="py-2xl px-gutter max-w-container-max mx-auto">
+  <div class="max-w-3xl mx-auto">
+    <a href="{{ .Parent.RelPermalink }}" class="text-on-surface-variant hover:text-primary text-body-sm transition-colors inline-block mb-lg">← {{ .Parent.Title }}</a>
+    <h1 class="font-headline-lg text-headline-lg text-on-surface mb-md">{{ .Title }}</h1>
+    {{ if eq .Section "blog" }}
+    <p class="text-on-surface-variant text-body-sm mb-xl">
+      {{ i18n "posted_on" }} {{ .Date.Format "2006-01-02" }}
+      {{ with .Params.author }} · {{ i18n "by" }} {{ . }}{{ end }}
+    </p>
+    {{ end }}
+    {{ with .Description }}
+    <p class="text-on-surface-variant font-body-lg mb-xl">{{ . }}</p>
+    {{ end }}
+    <div class="prose-page">
+      {{ .Content }}
+    </div>
+  </div>
+</article>
+{{ end }}

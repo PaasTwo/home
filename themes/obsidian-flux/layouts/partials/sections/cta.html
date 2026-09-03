@@ -1,0 +1,18 @@
+{{ $p := .Params }}
+<section class="py-2xl px-gutter relative overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-tr from-primary/10 to-secondary/10 -z-10"></div>
+  <div class="max-w-container-max mx-auto glass-card p-2xl rounded-2xl text-center border-outline-variant/30">
+    <h2 class="font-display-hero-mobile text-display-hero-mobile text-on-surface mb-md">{{ $p.cta_title }}</h2>
+    <h3 class="font-headline-lg text-headline-lg text-on-surface-variant mb-xl">{{ $p.cta_subtitle }}</h3>
+    <div class="flex flex-wrap justify-center gap-md">
+      <a href="{{ .Site.Params.userPanel }}" class="bg-gradient-to-r from-primary to-secondary text-on-primary font-label-caps text-label-caps px-xl py-md rounded-sm glow-primary transition-all">
+        {{ i18n "cta_get_started" }}
+      </a>
+      {{ with .Site.GetPage "/docs" }}
+      <a href="{{ .RelPermalink }}" class="border border-outline-variant text-on-surface font-label-caps text-label-caps px-xl py-md rounded-sm hover:bg-surface-container-highest/30 transition-all">
+        {{ i18n "cta_docs" }}
+      </a>
+      {{ end }}
+    </div>
+  </div>
+</section>

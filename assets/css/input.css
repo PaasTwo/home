@@ -1,0 +1,215 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html[lang="fa"] body,
+  html[dir="rtl"] body {
+    font-family: "Vazirmatn", "Inter", system-ui, sans-serif;
+  }
+
+  html[lang="fa"] .font-display-hero,
+  html[lang="fa"] .font-display-hero-mobile,
+  html[lang="fa"] .font-headline-lg,
+  html[lang="fa"] .font-headline-md,
+  html[lang="fa"] .font-label-caps {
+    font-family: "Vazirmatn", "Geist", system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .glass-card {
+    background: rgba(23, 23, 23, 0.7);
+    backdrop-filter: blur(20px);
+    border: 1px solid #262626;
+  }
+
+  .glow-primary:hover {
+    box-shadow: 0 0 20px rgba(221, 183, 255, 0.3);
+  }
+
+  .radial-gradient-bg {
+    background: radial-gradient(
+      circle at 50% 50%,
+      rgba(221, 183, 255, 0.05) 0%,
+      transparent 70%
+    );
+  }
+
+  .gradient-border {
+    border: 1px solid transparent;
+    background:
+      linear-gradient(#171717, #171717) padding-box,
+      linear-gradient(to right, #ddb7ff, #06b6d4) border-box;
+  }
+
+  .scrolling-banner {
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 10%,
+      black 90%,
+      transparent
+    );
+  }
+
+  .material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes marquee-rtl {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(50%);
+    }
+  }
+
+  .animate-marquee {
+    display: inline-flex;
+    animation: marquee 30s linear infinite;
+  }
+
+  html[dir="rtl"] .animate-marquee {
+    animation-name: marquee-rtl;
+  }
+
+  html[dir="rtl"] .read-more-arrow {
+    transform: scaleX(-1);
+  }
+
+  .terminal-mock {
+    background: #0a0a0a;
+    border: 1px solid #4d4354;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    font-family: Geist, ui-monospace, monospace;
+  }
+
+  .terminal-mock__header {
+    background: #262626;
+    padding: 0.5rem 0.75rem;
+    display: flex;
+    gap: 0.375rem;
+    align-items: center;
+  }
+
+  .terminal-mock__dot {
+    width: 0.625rem;
+    height: 0.625rem;
+    border-radius: 9999px;
+  }
+
+  .terminal-mock__body {
+    padding: 1rem 1.25rem;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #4cd7f6;
+    min-height: 220px;
+  }
+
+  .terminal-mock__body .ok {
+    color: #4edea3;
+  }
+
+  .terminal-mock__body .muted {
+    color: #988d9f;
+  }
+
+  .screen-mock {
+    background: linear-gradient(145deg, #1c1b1b 0%, #0e0e0e 100%);
+    border: 1px solid #4d4354;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    min-height: 280px;
+  }
+
+  .flow-mock {
+    background: #0e0e0e;
+    border: 1px solid rgba(77, 67, 84, 0.3);
+    border-radius: 0.5rem;
+    padding: 2rem 1rem;
+  }
+
+  .prose-page {
+    color: #cfc2d6;
+  }
+
+  .prose-page h1,
+  .prose-page h2,
+  .prose-page h3,
+  .prose-page h4 {
+    color: #e5e2e1;
+    font-family: Geist, Vazirmatn, system-ui, sans-serif;
+    font-weight: 600;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+  }
+
+  .prose-page h1 {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .prose-page h2 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .prose-page p,
+  .prose-page li {
+    margin-bottom: 0.75em;
+    line-height: 1.7;
+  }
+
+  .prose-page a {
+    color: #ddb7ff;
+  }
+
+  .prose-page a:hover {
+    color: #4cd7f6;
+  }
+
+  .prose-page code {
+    font-family: Geist, ui-monospace, monospace;
+    font-size: 0.9em;
+    background: #1c1b1b;
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.125rem;
+    color: #4cd7f6;
+  }
+
+  .prose-page pre {
+    background: #0e0e0e;
+    border: 1px solid #262626;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    overflow-x: auto;
+    margin: 1rem 0;
+  }
+
+  .prose-page pre code {
+    background: transparent;
+    padding: 0;
+  }
+
+  .prose-page ul {
+    list-style: disc;
+    padding-inline-start: 1.25rem;
+  }
+
+  .prose-page ol {
+    list-style: decimal;
+    padding-inline-start: 1.25rem;
+  }
+}

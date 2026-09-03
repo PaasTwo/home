@@ -1,0 +1,60 @@
+<footer class="bg-surface-container-lowest border-t border-outline-variant/20">
+  <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-sm px-gutter py-xl max-w-container-max mx-auto">
+    <div class="col-span-2">
+      <div class="flex items-center gap-sm mb-md">
+        <img class="h-6 w-auto object-contain" src="{{ "images/logo.png" | relURL }}" alt="{{ .Site.Params.brand }}" width="120" height="30"/>
+      </div>
+      <p class="text-on-surface-variant font-body-sm mb-lg max-w-[30ch]">
+        {{ i18n "footer_tagline" }}
+      </p>
+    </div>
+
+    <div class="flex flex-col gap-sm">
+      <h4 class="text-on-surface font-bold font-body-sm mb-xs">{{ i18n "footer_product" }}</h4>
+      <a class="text-on-surface-variant hover:text-primary transition-colors font-body-sm" href="{{ .Site.Home.RelPermalink }}#features">{{ i18n "nav_features" }}</a>
+      <a class="text-on-surface-variant hover:text-primary transition-colors font-body-sm" href="{{ .Site.Home.RelPermalink }}#ai">{{ i18n "nav_ai" }}</a>
+      {{ with .Site.GetPage "/docs" }}
+      <a class="text-on-surface-variant hover:text-primary transition-colors font-body-sm" href="{{ .RelPermalink }}">{{ i18n "nav_docs" }}</a>
+      {{ end }}
+      {{ with .Site.GetPage "/pricing" }}
+      <a class="text-on-surface-variant hover:text-primary transition-colors font-body-sm" href="{{ .RelPermalink }}">{{ i18n "nav_pricing" }}</a>
+      {{ end }}
+    </div>
+
+    <div class="flex flex-col gap-sm">
+      <h4 class="text-on-surface font-bold font-body-sm mb-xs">{{ i18n "footer_company" }}</h4>
+      {{ with .Site.GetPage "/about" }}
+      <a class="text-on-surface-variant hover:text-primary transition-colors font-body-sm" href="{{ .RelPermalink }}">{{ i18n "nav_about" }}</a>
+      {{ end }}
+      {{ with .Site.GetPage "/blog" }}
+      <a class="text-on-surface-variant hover:text-primary transition-colors font-body-sm" href="{{ .RelPermalink }}">{{ i18n "nav_blog" }}</a>
+      {{ end }}
+    </div>
+
+    <div class="flex flex-col gap-sm">
+      <h4 class="text-on-surface font-bold font-body-sm mb-xs">{{ i18n "footer_resources" }}</h4>
+      {{ with .Site.GetPage "/docs" }}
+      <a class="text-on-surface-variant hover:text-primary transition-colors font-body-sm" href="{{ .RelPermalink }}">{{ i18n "nav_docs" }}</a>
+      {{ end }}
+      <a class="text-on-surface-variant hover:text-primary transition-colors font-body-sm" href="{{ .Site.Params.swagger }}" target="_blank" rel="noopener">API</a>
+      <a class="text-on-surface-variant hover:text-primary transition-colors font-body-sm" href="{{ .Site.Params.userPanel }}">{{ i18n "cta_deploy" }}</a>
+    </div>
+
+    <div class="flex flex-col gap-sm">
+      <h4 class="text-on-surface font-bold font-body-sm mb-xs">{{ i18n "footer_social" }}</h4>
+      <a class="text-on-surface-variant hover:text-primary transition-colors font-body-sm" href="{{ .Site.Params.github }}" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+
+  <div class="border-t border-outline-variant/10 py-lg px-gutter max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-md">
+    <p class="font-body-sm text-body-sm text-on-surface-variant">
+      {{ replace (i18n "footer_copyright") "{{ .Year }}" (now.Format "2006") }}
+      · {{ i18n "footer_credit" }}
+      <a href="{{ .Site.Params.creditUrl }}" class="text-primary hover:text-secondary" target="_blank" rel="noopener">{{ .Site.Params.creditName }}</a>
+    </p>
+    <div class="flex gap-lg">
+      <span class="text-on-surface-variant font-body-sm">{{ i18n "footer_privacy" }}</span>
+      <span class="text-on-surface-variant font-body-sm">{{ i18n "footer_terms" }}</span>
+    </div>
+  </div>
+</footer>

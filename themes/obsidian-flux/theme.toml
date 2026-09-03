@@ -1,0 +1,12 @@
+name = "obsidian-flux"
+license = "MIT"
+licenselink = "https://opensource.org/licenses/MIT"
+description = "Obsidian Flux dark theme for PaaS2 — bilingual EN/FA with RTL support"
+homepage = "https://github.com/PaasTwo/home"
+tags = ["dark", "landing", "paas", "rtl", "multilingual"]
+features = ["multilingual", "rtl", "landing", "blog", "docs"]
+min_version = "0.120.0"
+
+[author]
+  name = "PaaS2"
+  homepage = "https://github.com/PaasTwo"

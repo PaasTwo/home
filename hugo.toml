@@ -1,0 +1,54 @@
+baseURL = "https://p2.devmad.ir/"
+title = "PaaS2"
+theme = "obsidian-flux"
+defaultContentLanguage = "fa"
+defaultContentLanguageInSubdir = false
+enableRobotsTXT = true
+enableGitInfo = false
+disableKinds = ["taxonomy", "term"]
+
+[pagination]
+  pagerSize = 10
+
+[params]
+  description = "AI-powered Platform as a Service for modern developers"
+  brand = "PaaS2"
+  github = "https://github.com/PaasTwo"
+  userPanel = "https://user-panel-p2.devmad.ir"
+  adminPanel = "https://admin-panel-p2.devmad.ir"
+  swagger = "https://api.devmad.ir/swagger/index.html"
+  creditUrl = "https://otsi.ir"
+  creditName = "Otsi"
+
+[languages]
+  [languages.fa]
+    languageCode = "fa"
+    languageName = "فارسی"
+    languageDirection = "rtl"
+    weight = 1
+    contentDir = "content/fa"
+    title = "PaaS2 — پلتفرم خودمیزبان"
+    [languages.fa.params]
+      description = "پلتفرم هوش مصنوعی PaaS برای توسعه‌دهندگان مدرن. استقرار بدون پیکربندی، مقیاس‌پذیری خودکار و خودترمیمی هوشمند."
+
+  [languages.en]
+    languageCode = "en"
+    languageName = "English"
+    languageDirection = "ltr"
+    weight = 2
+    contentDir = "content/en"
+    title = "PaaS2 — AI-Powered PaaS"
+    [languages.en.params]
+      description = "AI-powered Platform as a Service for modern developers. Zero configuration, autonomous scaling, and intelligent self-healing."
+
+[outputs]
+  home = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    style = "monokai"
+    lineNos = false

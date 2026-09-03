@@ -1,0 +1,20 @@
+{{ $p := .Params }}
+<section id="architecture" class="py-2xl bg-surface-container-lowest scroll-mt-20">
+  <div class="max-w-container-max mx-auto px-gutter text-center mb-xl">
+    <h2 class="font-headline-lg text-headline-lg text-on-surface mb-sm">{{ $p.arch_title }}</h2>
+    <p class="text-on-surface-variant font-body-md max-w-[60ch] mx-auto">{{ $p.arch_lead }}</p>
+  </div>
+  <div class="max-w-4xl mx-auto px-gutter">
+    <div class="flow-mock shadow-xl">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-md text-center">
+        {{ range $p.arch_nodes }}
+        <div class="glass-card p-md rounded-xl">
+          <span class="material-symbols-outlined text-secondary text-headline-md mb-sm" aria-hidden="true">{{ .icon }}</span>
+          <div class="font-label-caps text-label-caps text-on-surface">{{ .label }}</div>
+        </div>
+        {{ end }}
+      </div>
+      <p class="text-center text-on-surface-variant text-body-sm mt-lg">{{ $p.arch_caption }}</p>
+    </div>
+  </div>
+</section>
