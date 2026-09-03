@@ -22,9 +22,9 @@ disableKinds = ["taxonomy", "term"]
 
 [languages]
   [languages.fa]
-    languageCode = "fa"
-    languageName = "فارسی"
-    languageDirection = "rtl"
+    locale = "fa"
+    label = "فارسی"
+    direction = "rtl"
     weight = 1
     contentDir = "content/fa"
     title = "PaaS2 — پلتفرم خودمیزبان"
@@ -32,9 +32,9 @@ disableKinds = ["taxonomy", "term"]
       description = "پلتفرم هوش مصنوعی PaaS برای توسعه‌دهندگان مدرن. استقرار بدون پیکربندی، مقیاس‌پذیری خودکار و خودترمیمی هوشمند."
 
   [languages.en]
-    languageCode = "en"
-    languageName = "English"
-    languageDirection = "ltr"
+    locale = "en"
+    label = "English"
+    direction = "ltr"
     weight = 2
     contentDir = "content/en"
     title = "PaaS2 — AI-Powered PaaS"
