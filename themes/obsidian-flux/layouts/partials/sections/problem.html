@@ -1,0 +1,17 @@
+{{ $p := .Params }}
+<section id="problem" class="py-2xl px-gutter scroll-mt-20">
+  <div class="max-w-container-max mx-auto">
+    <div class="max-w-[40rem] mb-xl">
+      <h2 class="font-headline-lg text-headline-lg md:text-[2.5rem] md:leading-[1.15] text-on-surface mb-md">{{ $p.problem_title }}</h2>
+      <p class="text-on-surface-variant font-body-lg text-body-lg">{{ $p.problem_lead }}</p>
+    </div>
+    <ul class="grid sm:grid-cols-2 lg:grid-cols-3 gap-md">
+      {{ range $p.pains }}
+      <li class="surface-card">
+        <h3 class="text-on-surface font-semibold mb-xs">{{ .title }}</h3>
+        <p class="text-on-surface-variant text-body-sm">{{ .text }}</p>
+      </li>
+      {{ end }}
+    </ul>
+  </div>
+</section>

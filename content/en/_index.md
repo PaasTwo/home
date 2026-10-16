@@ -1,103 +1,132 @@
 ---
 title: "PaaS2"
-description: "AI-powered Platform as a Service for modern developers. Zero configuration, autonomous scaling, and intelligent self-healing."
-hero_title: "Deploy applications. Let AI handle the platform."
-hero_lead: "AI-powered Platform as a Service for modern developers. Zero configuration, autonomous scaling, and intelligent self-healing."
-marquee:
-  - KUBERNETES
-  - DOCKER
-  - GOLANG
-  - AI ENGINE
-  - GITOPS
-  - PROMETHEUS
-features_title: "Engineered for Velocity"
-features_lead: "A comprehensive toolset designed to remove the friction between code and production."
-features:
-  - icon: bolt
-    title: "One-command deployment"
-    description: "Push from local to production with a single CLI command or Git commit."
-  - icon: smart_toy
-    title: "AI Operations Assistant"
-    description: "An intelligent agent that monitors, optimizes, and fixes your cluster autonomously."
-  - icon: trending_up
-    title: "Automatic Scaling"
-    description: "Dynamic resource allocation based on real-time traffic and AI predictive modeling."
-  - icon: notifications_active
-    title: "Monitoring & Alerts"
-    description: "Real-time observability dashboards and instant anomaly detection notifications."
-  - icon: account_tree
-    title: "Git Integration"
-    description: "Seamless native support for GitHub, GitLab, and Bitbucket out of the box."
-  - icon: layers
-    title: "Multi-environment"
-    description: "Easily manage staging, preview, and production environments for every branch."
-  - icon: terminal
-    title: "Developer CLI"
-    description: "Powerful command-line interface for managing secrets, logs, and deployments."
-  - icon: grid_view
-    title: "Kubernetes powered"
-    description: "Enterprise-grade infrastructure stability without the K8s complexity."
-ai_badge: "AUTONOMOUS OPERATIONS"
-ai_title: "Your AI Platform Engineer"
-ai_panel_title: "AI Ops"
-ai_items:
-  - title: "Analyze deployments"
-    description: "Continuously reviews health metrics to ensure optimal performance."
-  - title: "Detect problems"
-    description: "Identifies memory leaks, slow queries, and networking issues in seconds."
-  - title: "Suggest fixes"
-    description: "Provides actionable code snippets or configuration changes to resolve errors."
-  - title: "Automate operations"
-    description: "Executes self-healing protocols like pod restarts and cache clearing."
-ai_metrics:
-  - label: "Cluster health"
-    value: "99.9%"
-    pct: 99
-  - label: "Load forecast"
-    value: "Stable"
-    pct: 72
-  - label: "Auto-remediations"
-    value: "12 today"
-    pct: 85
-steps_title: "The Path to Production"
+description: "PaaS2 is the application platform for the AI era. You build the software. PaaS2 simplifies deployment, scaling, monitoring, and operations."
+hero_eyebrow: "The application platform for the AI era"
+hero_title: "You Build. PaaS2 Runs."
+hero_lead: "AI has changed how fast software gets built. PaaS2 removes the infrastructure friction between your code and production, simplifying deployment, scaling, monitoring, and operations."
+hero_caption: "Illustration of the user dashboard. Not a live session."
+console_apps_label: "Applications"
+console_assistant_label: "Assistant"
+console_apps:
+  - name: my-api
+    image: "registry.example/my-api:1.4.2"
+    status: running
+    status_label: "Running"
+    replicas: "2 replicas"
+  - name: billing-worker
+    image: "registry.example/billing-worker:0.9.1"
+    status: deploying
+    status_label: "Deploying"
+    replicas: "1 replica"
+  - name: docs-site
+    image: "registry.example/docs-site:2.0.0"
+    status: stopped
+    status_label: "Stopped"
+    replicas: "0 replicas"
+console_thread:
+  - role: you
+    text: "Why did my-api restart?"
+  - role: assistant
+    text: "The latest deploy is running. Open logs for container output, or change the replica count if you need more capacity."
+problem_title: "Software Development Changed. Infrastructure Hasn't."
+problem_lead: "AI assistants and agents cut the time it takes to write an application. Getting that application into production — and keeping it there — is still a project of its own."
+pains:
+  - title: "Deployment pipelines"
+    text: "Wiring images and rollouts before anyone can use what you wrote."
+  - title: "Configuration"
+    text: "Keeping runtime settings and environment variables consistent."
+  - title: "Networking and access"
+    text: "Exposing a service and controlling who can change it."
+  - title: "Production visibility"
+    text: "Seeing whether an app is healthy, and reading logs when it is not."
+  - title: "Failure response"
+    text: "Restarting and diagnosing without assembling a separate ops toolkit."
+  - title: "Capacity"
+    text: "Changing how many replicas run when the workload changes."
+solution_title: "From Code to Production. Without the Infrastructure Bottleneck."
+solution_lead: "PaaS2 is one control plane for the path from a container image to a running workload. You still own the code and the image. The platform handles deploy, run, logs, and scale."
+solution_note: "You produce the container image. PaaS2 deploys it. There is no git-push build pipeline in the product today."
 steps:
-  - icon: upload
-    title: "Push code"
-    description: "Commit to your main branch or push via CLI."
-  - icon: rocket_launch
-    title: "Deploy with PaaS2"
-    description: "Automatic containerization and rollout."
-  - icon: analytics
-    title: "AI analyzes"
-    description: "Smart validation of deployment health."
-  - icon: monitor_heart
-    title: "Scale/Monitor"
-    description: "Continuous optimization and monitoring."
-arch_title: "Built for Scale"
-arch_lead: "Enterprise-grade architecture that bridges development and operations."
-arch_caption: "Git → Build → Deploy → AI Ops → Observe"
-arch_nodes:
-  - icon: commit
-    label: "Git"
-  - icon: build
-    label: "Build"
-  - icon: rocket_launch
-    label: "Deploy"
-  - icon: psychology
-    label: "AI Ops"
-philosophy_title: "A Developer-First Philosophy"
-philosophy_items:
-  - icon: terminal
-    text: "CLI-first design for power users"
-  - icon: api
-    text: "Comprehensive REST and GraphQL APIs"
-  - icon: public
-    text: "Open standard architecture (OCI)"
-  - icon: verified_user
-    text: "GitOps-friendly by default"
-quote_text: "PaaS2 completely changed how we think about DevOps. Our developers just push code, and the platform handles the rest. The AI insights are like having a senior engineer watching our clusters 24/7."
-quote_author: "Sarah Chen"
-quote_role: "CTO, CloudScale Inc."
-cta_title: "Focus on your application."
-cta_subtitle: "PaaS2 handles the platform."
+  - label: "Code"
+    text: "Write the application — in an editor, with a team, or with an AI assistant."
+  - label: "Build"
+    text: "Produce a container image with your own toolchain."
+  - label: "Deploy"
+    text: "Roll that image out from the dashboard, CLI, or API."
+  - label: "Run"
+    text: "Run it as a Kubernetes workload in an isolated namespace."
+  - label: "Monitor"
+    text: "Read status and container logs from the same place you deployed."
+  - label: "Scale"
+    text: "Set the replica count when you need more or less capacity."
+features_title: "Everything You Need to Run Software."
+features_lead: "These are the outcomes the platform supports today — not a catalog of every infrastructure tool."
+features:
+  - title: "Simple deployment"
+    text: "Move a container image to a running workload from the dashboard, CLI, or API."
+  - title: "Infrastructure abstraction"
+    text: "Use Kubernetes scheduling, namespaces, and ingress without writing the manifests yourself."
+  - title: "Environment management"
+    text: "Set application environment variables through the API or CLI. Secret values are redacted when read back."
+  - title: "Observability"
+    text: "Check application status and pull container logs when something needs attention."
+  - title: "Scaling and reliability"
+    text: "Change replica count, restart a workload, or stop it from one workflow."
+  - title: "Security and access control"
+    text: "Sign in with Keycloak. User and admin panels, and their API routes, stay separate."
+ai_title: "AI-assisted operations"
+ai_text: "Ask the user assistant about an application, review security scan reports, and optionally allow restart or scale actions. The assistant helps. It does not replace operational judgment or predict traffic for you."
+dx_title: "Deploy Without Becoming a DevOps Engineer."
+dx_lead: "The same lifecycle is available from the paas2 CLI. The commands below match the CLI in this repository."
+dx_aside_title: "What you do not have to assemble"
+dx_aside:
+  - "Deployment, Service, and Ingress manifests"
+  - "A namespace per user, created for you"
+  - "Separate tools for logs, scale, restart, and environment variables"
+dx_commands:
+  - "paas2 login"
+  - "paas2 apps create my-api"
+  - "paas2 apps env set -a my-api PORT=8080"
+  - "paas2 deploy my-api"
+  - "paas2 scale my-api -r 3"
+  - "paas2 logs my-api -t"
+dx_footnote: "Deploy ships a container image through the platform. It does not build that image from git. Some application commands still need the id the API uses, not only the display name."
+teams_title: "One Platform. Different Workflows."
+teams_lead: "The control plane is shared. The reason you open it is not."
+teams:
+  - who: "Individual developers"
+    text: "Ship a project without standing up a cluster by hand."
+  - who: "AI-assisted developers"
+    text: "Turn generated code into a running workload once you have an image to deploy."
+  - who: "Startups"
+    text: "Put a prototype on a repeatable deploy path before you hire a platform team."
+  - who: "Product engineering teams"
+    text: "Give every service the same create, deploy, log, and scale workflow."
+  - who: "Platform and DevOps teams"
+    text: "Keep Kubernetes, ingress, and access control, while developers stay on a higher-level interface."
+foundation_title: "The Power of Cloud-Native. Without the Operational Overhead."
+foundation_kicker: "Abstract the complexity. Preserve the power."
+foundation_lead: "PaaS2 sits on containers, Kubernetes, a REST API, and role-based access. It raises the default experience. It does not remove the need for infrastructure judgment when you operate the cluster itself."
+foundation_points:
+  - title: "Containers"
+    text: "Workloads run from the images you supply."
+  - title: "Kubernetes"
+    text: "Deployments, isolated namespaces, and ingress are the execution layer — on embedded k3s or a cluster you point the API at."
+  - title: "API and automation"
+    text: "The same actions exist on the REST API, the CLI, and the panels. Scheduled jobs cover usage, billing, and scan dispatch."
+  - title: "Signals you can use"
+    text: "Pod logs, platform health metrics, and Alertmanager are in the stack. This is not a full application-performance product for every tenant."
+  - title: "Access"
+    text: "Keycloak handles sign-in. Admin routes stay separate from the user panel."
+infra_title: "Your Infrastructure. Your Rules."
+infra_lead: "PaaS2 is a control plane you run. It is not a locked hosting service that keeps the cluster out of reach."
+infra_points:
+  - title: "Self-managed stack"
+    text: "Run the platform with Docker Compose: Postgres, Redis, Keycloak, Traefik, and an embedded k3s cluster."
+  - title: "Your cluster"
+    text: "Applications are standard Kubernetes workloads. You operate the cluster the API deploys into."
+  - title: "Your edge"
+    text: "Publish the platform behind your own proxy and domains. Data and the operational boundary stay with you."
+cta_title: "Your Next Application Shouldn't Need a DevOps Project."
+cta_lead: "Build your application. Let PaaS2 simplify the journey to production."
 ---

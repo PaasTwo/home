@@ -11,8 +11,8 @@
 
     <div class="flex flex-col gap-sm">
       <h4 class="text-on-surface font-bold font-body-sm mb-xs">{{ i18n "footer_product" }}</h4>
+      <a class="text-on-surface-variant hover:text-primary transition-colors font-body-sm" href="{{ .Site.Home.RelPermalink }}#platform">{{ i18n "nav_platform" }}</a>
       <a class="text-on-surface-variant hover:text-primary transition-colors font-body-sm" href="{{ .Site.Home.RelPermalink }}#features">{{ i18n "nav_features" }}</a>
-      <a class="text-on-surface-variant hover:text-primary transition-colors font-body-sm" href="{{ .Site.Home.RelPermalink }}#ai">{{ i18n "nav_ai" }}</a>
       {{ with .Site.GetPage "/docs" }}
       <a class="text-on-surface-variant hover:text-primary transition-colors font-body-sm" href="{{ .RelPermalink }}">{{ i18n "nav_docs" }}</a>
       {{ end }}
@@ -37,7 +37,7 @@
       <a class="text-on-surface-variant hover:text-primary transition-colors font-body-sm" href="{{ .RelPermalink }}">{{ i18n "nav_docs" }}</a>
       {{ end }}
       <a class="text-on-surface-variant hover:text-primary transition-colors font-body-sm" href="{{ .Site.Params.swagger }}" target="_blank" rel="noopener">API</a>
-      <a class="text-on-surface-variant hover:text-primary transition-colors font-body-sm" href="{{ .Site.Params.userPanel }}">{{ i18n "cta_deploy" }}</a>
+      <a class="text-on-surface-variant hover:text-primary transition-colors font-body-sm" href="{{ .Site.Params.userPanel }}">{{ i18n "cta_get_started" }}</a>
     </div>
 
     <div class="flex flex-col gap-sm">
@@ -48,7 +48,7 @@
 
   <div class="border-t border-outline-variant/10 py-lg px-gutter max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-md">
     <p class="font-body-sm text-body-sm text-on-surface-variant">
-      {{ replace (i18n "footer_copyright") "{{ .Year }}" (now.Format "2006") }}
+      © {{ now.Format "2006" }} {{ i18n "footer_copyright" }}
       · {{ i18n "footer_credit" }}
       <a href="{{ .Site.Params.creditUrl }}" class="text-primary hover:text-secondary" target="_blank" rel="noopener">{{ .Site.Params.creditName }}</a>
     </p>

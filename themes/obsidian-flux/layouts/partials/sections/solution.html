@@ -1,0 +1,19 @@
+{{ $p := .Params }}
+<section id="platform" class="py-2xl px-gutter border-y border-[#262626] bg-surface-container-lowest scroll-mt-20">
+  <div class="max-w-container-max mx-auto">
+    <div class="max-w-[44rem] mb-xl">
+      <h2 class="font-headline-lg text-headline-lg md:text-[2.5rem] md:leading-[1.15] text-on-surface mb-md">{{ $p.solution_title }}</h2>
+      <p class="text-on-surface-variant font-body-lg text-body-lg">{{ $p.solution_lead }}</p>
+    </div>
+    <ol class="workflow">
+      {{ range $i, $step := $p.steps }}
+      <li class="workflow__step">
+        <span class="workflow__index" aria-hidden="true">{{ printf "%02d" (add $i 1) }}</span>
+        <h3 class="workflow__label">{{ $step.label }}</h3>
+        <p class="workflow__text">{{ $step.text }}</p>
+      </li>
+      {{ end }}
+    </ol>
+    <p class="mt-lg text-body-sm text-outline max-w-[62ch]">{{ $p.solution_note }}</p>
+  </div>
+</section>

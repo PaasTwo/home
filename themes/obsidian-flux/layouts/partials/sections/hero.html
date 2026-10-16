@@ -1,44 +1,59 @@
 {{ $p := .Params }}
-<section class="relative overflow-hidden pt-2xl pb-xl px-gutter">
-  <div class="absolute top-0 start-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-primary/10 blur-[120px] rounded-full -z-10"></div>
-  <div class="max-w-container-max mx-auto grid lg:grid-cols-2 gap-xl items-center">
-    <div class="flex flex-col gap-lg">
-      <h1 class="font-display-hero text-display-hero-mobile md:text-display-hero text-on-surface max-w-[14ch]">
-        {{ $p.hero_title | default .Title }}
-      </h1>
-      <p class="font-body-lg text-body-lg text-on-surface-variant max-w-[45ch]">
-        {{ $p.hero_lead | default .Description }}
+<section class="relative pt-xl pb-2xl px-gutter border-b border-[#262626]">
+  <div class="max-w-container-max mx-auto grid lg:grid-cols-12 gap-xl items-center">
+    <div class="lg:col-span-5 flex flex-col gap-lg">
+      <p class="font-label-caps text-label-caps text-primary uppercase tracking-[0.14em]">
+        {{ $p.hero_eyebrow }}
       </p>
-      <div class="flex flex-wrap gap-md mt-md">
-        <a href="{{ .Site.Params.userPanel }}" class="bg-gradient-to-r from-primary to-secondary text-on-primary font-label-caps text-label-caps px-xl py-md rounded-sm glow-primary transition-all">
-          {{ i18n "cta_start" }}
+      <h1 class="font-display-hero text-[2.5rem] leading-[1.08] md:text-[3.25rem] md:leading-[1.05] text-on-surface">
+        {{ $p.hero_title }}
+      </h1>
+      <p class="font-body-lg text-body-lg text-on-surface-variant max-w-[42ch]">
+        {{ $p.hero_lead }}
+      </p>
+      <div class="flex flex-wrap gap-md">
+        <a href="{{ .Site.Params.userPanel }}" class="inline-flex items-center bg-primary text-on-primary font-label-caps text-label-caps px-lg py-md rounded-sm hover:bg-primary-container transition-colors">
+          {{ i18n "cta_get_started" }}
         </a>
-        {{ with .Site.GetPage "/docs" }}
-        <a href="{{ .RelPermalink }}" class="border border-outline-variant text-on-surface font-label-caps text-label-caps px-xl py-md rounded-sm hover:bg-surface-container-highest/30 transition-all">
-          {{ i18n "cta_docs" }}
+        <a href="#platform" class="inline-flex items-center border border-[#262626] text-on-surface font-label-caps text-label-caps px-lg py-md rounded-sm hover:bg-surface-container-low transition-colors">
+          {{ i18n "cta_explore" }}
         </a>
-        {{ end }}
       </div>
     </div>
-    <div class="relative group">
-      <div class="absolute inset-0 bg-secondary/20 blur-[80px] rounded-full group-hover:bg-secondary/30 transition-all duration-500"></div>
-      <div class="relative z-10 terminal-mock shadow-2xl" dir="ltr">
-        <div class="terminal-mock__header">
-          <span class="terminal-mock__dot bg-error"></span>
-          <span class="terminal-mock__dot bg-tertiary"></span>
-          <span class="terminal-mock__dot bg-secondary"></span>
-          <span class="ms-auto text-on-surface-variant text-code-sm">paas2 deploy</span>
-        </div>
-        <div class="terminal-mock__body">
-          <div><span class="muted">$</span> paas2 apps create my-api</div>
-          <div class="ok">✓ Application created</div>
-          <div><span class="muted">$</span> git push paas2 main</div>
-          <div class="muted">Building image…</div>
-          <div class="ok">✓ Deployed to production</div>
-          <div class="muted">URL: https://my-api.{{ .Site.Params.brand | lower }}.ir</div>
-          <div class="ok">✓ AI health check passed</div>
+
+    <figure class="lg:col-span-7 console" dir="ltr">
+      <div class="console__bar">
+        <span class="console__dot"></span>
+        <span class="console__dot"></span>
+        <span class="console__dot"></span>
+        <span class="console__title">{{ $p.console_apps_label }}</span>
+      </div>
+      <div class="console__body">
+        <ul class="console__apps">
+          {{ range $p.console_apps }}
+          <li class="console__app">
+            <div class="console__app-main">
+              <span class="console__name">{{ .name }}</span>
+              <span class="console__image">{{ .image }}</span>
+            </div>
+            <div class="console__meta">
+              <span class="console__status console__status--{{ .status }}">{{ .status_label }}</span>
+              <span class="console__replicas">{{ .replicas }}</span>
+            </div>
+          </li>
+          {{ end }}
+        </ul>
+        <div class="console__assistant">
+          <p class="console__assistant-label">{{ $p.console_assistant_label }}</p>
+          {{ range $p.console_thread }}
+          <p class="console__line console__line--{{ .role }}">
+            <span class="console__who">{{ .role }}</span>
+            {{ .text }}
+          </p>
+          {{ end }}
         </div>
       </div>
-    </div>
+      <figcaption class="console__caption">{{ $p.hero_caption }}</figcaption>
+    </figure>
   </div>
 </section>

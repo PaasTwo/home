@@ -1,8 +1,8 @@
+[nav_platform]
+other = "پلتفرم"
+
 [nav_features]
 other = "قابلیت‌ها"
-
-[nav_ai]
-other = "هوش مصنوعی"
 
 [nav_docs]
 other = "مستندات"
@@ -20,16 +20,22 @@ other = "بلاگ"
 other = "گیت‌هاب"
 
 [cta_deploy]
-other = "شروع استقرار"
+other = "شروع کنید"
 
 [cta_start]
 other = "شروع کنید"
 
 [cta_docs]
-other = "مشاهده مستندات"
+other = "مستندات"
 
 [cta_get_started]
 other = "شروع کنید"
+
+[cta_explore]
+other = "پلتفرم را ببینید"
+
+[cta_sign_in]
+other = "ورود"
 
 [read_more]
 other = "ادامه مطلب"
@@ -74,10 +80,10 @@ other = "حریم خصوصی"
 other = "شرایط استفاده"
 
 [footer_tagline]
-other = "آینده زیرساخت ابری، خودمختار است. توانمندسازی توسعه‌دهندگان با عملیات مبتنی بر هوش مصنوعی."
+other = "شما می‌سازید. PaaS2 اجرا می‌کند. پلتفرم اپلیکیشن بین کد و پروداکشن."
 
 [footer_copyright]
-other = "© {{ .Year }} PaaS2 — پلتفرم ایرانی. همه حقوق محفوظ است."
+other = "PaaS2 — پلتفرم ایرانی. همه حقوق محفوظ است."
 
 [footer_credit]
 other = "طراحی و توسعه توسط"

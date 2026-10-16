@@ -13,7 +13,7 @@ weight: 1
 
 ## مراحل
 
-1. وارد [پنل کاربری](https://user-panel-p2.devmad.ir) شوید.
+1. وارد [پنل کاربری](https://panel.paas2.ir) شوید.
 2. یک اپلیکیشن جدید بسازید:
 
 ```bash

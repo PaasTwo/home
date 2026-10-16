@@ -13,7 +13,7 @@ weight: 3
 
 Swagger زنده را اینجا ببینید:
 
-[Swagger API](https://api.devmad.ir/swagger/index.html)
+[Swagger API](https://api.paas2.ir/swagger/index.html)
 
 ## مفاهیم اصلی
 

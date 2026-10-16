@@ -13,7 +13,7 @@ weight: 1
 
 ## Steps
 
-1. Sign in to the [user panel](https://user-panel-p2.devmad.ir).
+1. Sign in to the [user panel](https://panel.paas2.ir).
 2. Create an application:
 
 ```bash

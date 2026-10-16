@@ -1,0 +1,20 @@
+{{ $p := .Params }}
+<section id="teams" class="py-2xl px-gutter scroll-mt-20">
+  <div class="max-w-container-max mx-auto">
+    <div class="max-w-[40rem] mb-xl">
+      <h2 class="font-headline-lg text-headline-lg md:text-[2.5rem] md:leading-[1.15] text-on-surface mb-md">{{ $p.teams_title }}</h2>
+      <p class="text-on-surface-variant font-body-lg text-body-lg">{{ $p.teams_lead }}</p>
+    </div>
+    <ol class="border-t border-[#262626]">
+      {{ range $i, $team := $p.teams }}
+      <li class="grid md:grid-cols-12 gap-sm md:gap-lg py-lg border-b border-[#262626]">
+        <p class="md:col-span-4 text-on-surface font-semibold">
+          <span class="text-outline font-label-caps text-label-caps me-sm" aria-hidden="true">{{ printf "%02d" (add $i 1) }}</span>
+          {{ $team.who }}
+        </p>
+        <p class="md:col-span-8 text-on-surface-variant">{{ $team.text }}</p>
+      </li>
+      {{ end }}
+    </ol>
+  </div>
+</section>

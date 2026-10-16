@@ -1,8 +1,8 @@
+[nav_platform]
+other = "Platform"
+
 [nav_features]
 other = "Features"
-
-[nav_ai]
-other = "AI"
 
 [nav_docs]
 other = "Documentation"
@@ -20,16 +20,22 @@ other = "Blog"
 other = "GitHub"
 
 [cta_deploy]
-other = "Deploy Now"
+other = "Get Started"
 
 [cta_start]
-other = "Start Deploying"
+other = "Get Started"
 
 [cta_docs]
 other = "Documentation"
 
 [cta_get_started]
 other = "Get Started"
+
+[cta_explore]
+other = "Explore the Platform"
+
+[cta_sign_in]
+other = "Sign In"
 
 [read_more]
 other = "Read more"
@@ -74,10 +80,10 @@ other = "Privacy"
 other = "Terms"
 
 [footer_tagline]
-other = "The future of cloud infrastructure is autonomous. Empowering developers with AI-driven operations."
+other = "You build. PaaS2 runs. The application platform between your code and production."
 
 [footer_copyright]
-other = "© {{ .Year }} PaaS2 Iranian PaaS. All rights reserved. Built for developers."
+other = "PaaS2. All rights reserved. Built for developers."
 
 [footer_credit]
 other = "Designed and developed by"

@@ -13,7 +13,7 @@ All panels and the CLI talk to the platform through the **API Server** (Go + Gin
 
 See the live Swagger UI:
 
-[Swagger API](https://api.devmad.ir/swagger/index.html)
+[Swagger API](https://api.paas2.ir/swagger/index.html)
 
 ## Core resources
 

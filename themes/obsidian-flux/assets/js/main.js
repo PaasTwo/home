@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const setOpen = (open) => {
     menu.classList.toggle("hidden", !open);
     menuBtn.setAttribute("aria-expanded", String(open));
+    menuBtn.setAttribute("aria-label", open ? menuBtn.dataset.labelClose : menuBtn.dataset.labelOpen);
     if (iconOpen) iconOpen.classList.toggle("hidden", open);
     if (iconClose) iconClose.classList.toggle("hidden", !open);
   };
@@ -19,6 +20,9 @@ document.addEventListener("DOMContentLoaded", () => {
       link.addEventListener("click", () => setOpen(false));
     });
   }
+
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduceMotion) return;
 
   const observer = new IntersectionObserver(
     (entries) => {

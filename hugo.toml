@@ -1,4 +1,4 @@
-baseURL = "https://p2.devmad.ir/"
+baseURL = "https://paas2.ir/"
 title = "PaaS2"
 theme = "obsidian-flux"
 defaultContentLanguage = "fa"
@@ -11,12 +11,12 @@ disableKinds = ["taxonomy", "term"]
   pagerSize = 10
 
 [params]
-  description = "AI-powered Platform as a Service for modern developers"
+  description = "The application platform for the AI era. You build. PaaS2 runs."
   brand = "PaaS2"
   github = "https://github.com/PaasTwo"
-  userPanel = "https://user-panel-p2.devmad.ir"
-  adminPanel = "https://admin-panel-p2.devmad.ir"
-  swagger = "https://api.devmad.ir/swagger/index.html"
+  userPanel = "https://panel.paas2.ir"
+  adminPanel = "https://admin.pdcloud.ir"
+  swagger = "https://api.paas2.ir/swagger/index.html"
   creditUrl = "https://otsi.ir"
   creditName = "Otsi"
 
@@ -27,9 +27,9 @@ disableKinds = ["taxonomy", "term"]
     direction = "rtl"
     weight = 1
     contentDir = "content/fa"
-    title = "PaaS2 — پلتفرم خودمیزبان"
+    title = "PaaS2 — شما می‌سازید. PaaS2 اجرا می‌کند."
     [languages.fa.params]
-      description = "پلتفرم هوش مصنوعی PaaS برای توسعه‌دهندگان مدرن. استقرار بدون پیکربندی، مقیاس‌پذیری خودکار و خودترمیمی هوشمند."
+      description = "پلتفرم اپلیکیشن برای عصر هوش مصنوعی. استقرار، مقیاس، پایش و عملیات را ساده‌تر می‌کند."
 
   [languages.en]
     locale = "en"
@@ -37,9 +37,9 @@ disableKinds = ["taxonomy", "term"]
     direction = "ltr"
     weight = 2
     contentDir = "content/en"
-    title = "PaaS2 — AI-Powered PaaS"
+    title = "PaaS2 — You Build. PaaS2 Runs."
     [languages.en.params]
-      description = "AI-powered Platform as a Service for modern developers. Zero configuration, autonomous scaling, and intelligent self-healing."
+      description = "The application platform for the AI era. You build the software. PaaS2 simplifies deployment, scaling, monitoring, and operations."
 
 [outputs]
   home = ["HTML", "RSS"]
